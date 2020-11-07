@@ -1,1 +1,40 @@
-<p>header works!</p>
+<header class="header">
+  <h1 class="header__logo">
+    <a href="" class="header__logo-link">Instacircle</a>
+  </h1>
+  <ng-container *ngIf="authService.user$ | async as user; else default">
+    <ng-container *ngIf="event"></ng-container>
+    <button class="header__add-btn">
+      <mat-icon>add</mat-icon> 画像を投稿する
+    </button>
+    <button
+      mat-mini-fab
+      [matMenuTriggerFor]="userMenu"
+      [style.background-image]="'url(' + user.avatarURL + ')'"
+      class="header__icon"
+    ></button>
+    <mat-menu #userMenu="matMenu" class="header__menu">
+      <a mat-menu-item routerLink="/">
+        <mat-icon>create</mat-icon>
+        <span>イベントを作る</span>
+      </a>
+      <a mat-menu-item routerLink="/">
+        <mat-icon>group</mat-icon>
+        <span>イベントに参加する</span>
+      </a>
+      <button mat-menu-item (click)="authService.logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>ログアウト</span>
+      </button>
+    </mat-menu>
+  </ng-container>
+  <ng-template #default>
+    <button
+      class="header__login"
+      (click)="authService.googlelogin()"
+      matTooltip="Googleアカウントでサインイン"
+    >
+      サインイン
+    </button>
+  </ng-template>
+</header>
