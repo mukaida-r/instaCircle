@@ -1,10 +1,8 @@
 export interface Event {
-  eventId: number;
-  password: string;
+  eventId: string;
   title: string;
   discliption: string;
   thumbnailURL: string;
-  ownerUserId: string;
-  joinedUid: string[];
-  createAt: Date;
+  ownerId: string;
+  createAt: firebase.default.firestore.Timestamp;
 }

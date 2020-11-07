@@ -1,4 +1,16 @@
-<app-image-list *ngIf="event$ | async; else blank"></app-image-list>
+<ng-container *ngIf="event$ | async; else blank">
+  <div class="container">
+    <input
+      (change)="selectImages($event)"
+      type="file"
+      id="file"
+      name="file"
+      multiple
+      accept=".png, .jpg, .jpeg"
+    />
+    <button (click)="uploadImages()">投稿</button>
+  </div>
+</ng-container>
 <ng-template #blank>
   <div class="container">
     <div class="event__blank">

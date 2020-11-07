@@ -1,0 +1,12 @@
+@import 'variables';
+@import 'mixins';
+
+.footer {
+  padding: 20px 16px 72px;
+  color: #bdbdbd;
+  font-style: 12px;
+  text-align: center;
+  @include pc {
+    padding: 16px 24px;
+  }
+}

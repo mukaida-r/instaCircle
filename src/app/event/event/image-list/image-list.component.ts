@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Image } from 'src/app/interfaces/image';
+import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-image-list',
@@ -7,33 +10,20 @@ import { Image } from 'src/app/interfaces/image';
   styleUrls: ['./image-list.component.scss'],
 })
 export class ImageListComponent implements OnInit {
-  imageList: Image[] = [
-    {
-      imageURL: 'assets/images/image-card-sample01.jpg',
-    },
-    {
-      imageURL: 'assets/images/image-card-sample02.jpg',
-    },
-    {
-      imageURL: 'assets/images/image-card-sample03.jpg',
-    },
-    {
-      imageURL: 'assets/images/image-card-sample04.jpg',
-    },
-    {
-      imageURL: 'assets/images/image-card-sample01.jpg',
-    },
-    {
-      imageURL: 'assets/images/image-card-sample02.jpg',
-    },
-    {
-      imageURL: 'assets/images/image-card-sample03.jpg',
-    },
-    {
-      imageURL: 'assets/images/image-card-sample04.jpg',
-    },
-  ];
-  constructor() {}
+  eventId: string;
+  imageList: Image[];
 
-  ngOnInit(): void {}
+  constructor(
+    private route: ActivatedRoute,
+    private imageService: ImageService
+  ) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      this.eventId = params.get('eventId');
+    });
+    this.imageService.getImages(this.eventId).subscribe((images) => {
+      this.imageList = images;
+    });
+  }
 }

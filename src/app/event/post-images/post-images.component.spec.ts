@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JoinedEventListComponent } from './joined-event-list.component';
+import { PostImagesComponent } from './post-images.component';
 
-describe('JoinedEventListComponent', () => {
-  let component: JoinedEventListComponent;
-  let fixture: ComponentFixture<JoinedEventListComponent>;
+describe('PostImagesComponent', () => {
+  let component: PostImagesComponent;
+  let fixture: ComponentFixture<PostImagesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [JoinedEventListComponent],
+      declarations: [PostImagesComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(JoinedEventListComponent);
+    fixture = TestBed.createComponent(PostImagesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

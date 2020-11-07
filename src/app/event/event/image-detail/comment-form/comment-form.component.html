@@ -1,1 +1,14 @@
-<p>comment-form works!</p>
+<div class="container">
+  <div class="inner">
+    <mat-form-field appearance="outline">
+      <textarea
+        placeholder="コメントを追加"
+        [formControl]="commentForm"
+        matTextareaAutosize
+        matInput
+      ></textarea>
+      <mat-icon matSuffix>send</mat-icon>
+      <mat-error *ngIf="commentForm.hasError('maxLength')"></mat-error>
+    </mat-form-field>
+  </div>
+</div>
