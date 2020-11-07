@@ -7,6 +7,7 @@ import { ImageListComponent } from './event/image-list/image-list.component';
 import { ImageDetailComponent } from './event/image-detail/image-detail.component';
 import { CommentFormComponent } from './event/image-detail/comment-form/comment-form.component';
 import { CommentListComponent } from './event/image-detail/comment-list/comment-list.component';
+import { ImageCardComponent } from './event/image-list/image-card/image-card.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CommentListComponent } from './event/image-detail/comment-list/comment-
     ImageListComponent,
     ImageDetailComponent,
     CommentListComponent,
+    ImageCardComponent,
   ],
   imports: [CommonModule, EventRoutingModule],
 })

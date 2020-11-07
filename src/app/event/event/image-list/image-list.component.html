@@ -1,1 +1,16 @@
-<p>image-list works!</p>
+<div class="image-list">
+  <div class="container">
+    <ng-container *ngIf="imageList && imageList.length > 0; else blank">
+      <div class="image-list__list">
+        <app-image-card
+          class="image-list__item"
+          [image]="image"
+          *ngFor="let image of imageList"
+        ></app-image-card>
+      </div>
+    </ng-container>
+    <ng-template #blank>
+      <a href="" class="image-list__blank"> + 画像を投稿する </a>
+    </ng-template>
+  </div>
+</div>
