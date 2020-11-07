@@ -16,7 +16,7 @@ export class EventComponent implements OnInit {
     private route: ActivatedRoute,
     private eventServise: EventService
   ) {
-    route.paramMap.subscribe((params) => {
+    this.route.paramMap.subscribe((params) => {
       this.event$ = this.eventServise.getEvent(params.get('eventId'));
     });
   }
