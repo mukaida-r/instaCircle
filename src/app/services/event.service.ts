@@ -8,8 +8,11 @@ import { Password } from '../interfaces/password';
   providedIn: 'root',
 })
 export class EventService {
-  constructor(private db: AngularFirestore) {}
-
+  eventId: string;
+  event$: Observable<Event>;
+  constructor(private db: AngularFirestore) {
+    this.event$ = this.getEvent(this.eventId);
+  }
   async createEvent(
     event: Omit<Event, 'eventId'>,
     password: string
@@ -25,7 +28,7 @@ export class EventService {
     });
   }
 
-  getEvent(id: string): Observable<any> {
-    return this.db.doc(`events/${id}`).valueChanges();
+  getEvent(id: string): Observable<Event> {
+    return this.db.doc<Event>(`events/${id}`).valueChanges();
   }
 }
