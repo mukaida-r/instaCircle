@@ -9,7 +9,7 @@ import { Password } from '../interfaces/password';
 export class EventService {
   constructor(private db: AngularFirestore) {}
 
-  async createEventData(
+  async createEvent(
     event: Omit<Event, 'eventId'>,
     password: string
   ): Promise<void> {

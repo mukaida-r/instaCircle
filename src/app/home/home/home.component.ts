@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CreateEventDialogComponent } from './create-event-dialog/create-event-dialog.component';
 import { JoinEventDialogComponent } from './join-event-dialog/join-event-dialog.component';
 
 @Component({
@@ -14,6 +15,15 @@ export class HomeComponent implements OnInit {
 
   openJoinEventDialog() {
     this.dialog.open(JoinEventDialogComponent, {
+      maxWidth: '100vw',
+      minWidth: '50%',
+      autoFocus: false,
+      restoreFocus: false,
+    });
+  }
+
+  openCreateEventDialog() {
+    this.dialog.open(CreateEventDialogComponent, {
       maxWidth: '100vw',
       minWidth: '50%',
       autoFocus: false,
