@@ -31,4 +31,16 @@
       }
     }
   }
+  &__blank {
+    display: block;
+    padding: 80px 16px;
+    background-color: $color-base;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: center;
+    transition: opacity 0.4s;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }
