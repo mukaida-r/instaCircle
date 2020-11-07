@@ -1,1 +1,9 @@
 <p>welcome works!</p>
+<ng-container *ngIf="authService.user$ | async as user; else blank">
+  <p>{{ user.name }}</p>
+  <img [src]="user.avatarURL" alt="" />
+  <button (click)="authService.logout()">ログアウト</button>
+</ng-container>
+<ng-template #blank>
+  <button (click)="authService.googlelogin()">ログイン</button>
+</ng-template>
