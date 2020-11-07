@@ -1,1 +1,27 @@
-<p>comment-list works!</p>
+<div class="comment">
+  <figure class="comment__avatar"></figure>
+  <div class="comment__body">
+    <p class="comment__body">
+      <span class="comment__name">Lorem.</span>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+      nesciunt autem architecto molestiae error eveniet pariatur minus est
+      magnam numquam, atque modi eius asperiores consequuntur tenetur. Debitis
+      aliquid officiis vel!
+    </p>
+    <p class="comment__date">00:00</p>
+  </div>
+  <div>
+    <button
+      mat-icon-button
+      [mat-menu-trigger-for]="commentEditor"
+      type="button"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #commentEditor="matMenu">
+      <button mat-menu-item type="button">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-menu>
+  </div>
+</div>
