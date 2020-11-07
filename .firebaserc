@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "instacircle"
+  },
+  "targets": {
+    "instacircle": {
+      "hosting": {
+        "Instacircle": [
+          "instacircle"
+        ]
+      }
+    }
   }
 }

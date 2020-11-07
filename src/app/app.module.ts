@@ -1,13 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AngularFireModule } from '@angular/fire';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShellComponent } from './shell/shell.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { environment } from '../environments/environment';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireFunctionsModule, REGION } from '@angular/fire/functions';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -17,8 +24,18 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FooterComponent,
     NotFoundComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireFunctionsModule,
+    AngularFireAuthModule,
+  ],
+  providers: [{ provide: REGION, useValue: 'asia-northeast1' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
