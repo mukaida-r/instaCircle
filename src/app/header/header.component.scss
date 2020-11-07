@@ -1,0 +1,81 @@
+@import 'variables';
+@import 'mixins';
+
+.header {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 16px;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  z-index: 1000;
+  &__logo {
+    margin: 0 auto 0 0;
+    color: $color-font;
+    font-family: $font-logo;
+  }
+  &__logo-link {
+    transition: opacity 0.4s;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__icon {
+    box-shadow: none;
+    background: center / cover no-repeat;
+  }
+  &__add-btn {
+    display: none;
+    @include pc {
+      cursor: pointer;
+      border: none;
+      color: #fff;
+      align-items: center;
+      outline: none;
+      margin-right: 8px;
+      display: flex;
+      font-weight: 700;
+      font-family: $font-default;
+      text-align: center;
+      transition: background-color 0.4s, color 0.4s;
+      position: static;
+      padding: 8px 16px;
+      width: auto;
+      border: 1px solid $color-accent;
+      background-color: #fff;
+      color: $color-accent;
+      border-radius: 35px;
+      font-size: 14px;
+      &:hover {
+        background-color: $color-accent;
+        color: #fff;
+      }
+    }
+    mat-icon {
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+      margin-right: 4px;
+    }
+  }
+  &__login {
+    cursor: pointer;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 35px;
+    background-color: $color-accent;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: $font-default;
+    outline: none;
+    transition: background-color 0.4s;
+    &:hover {
+      background-color: $color-main;
+    }
+  }
+}
