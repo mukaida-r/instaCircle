@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import * as firebase from 'firebase';
+import { Observable } from 'rxjs';
+import { Image } from '../interfaces/image';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -40,5 +42,9 @@ export class ImageService {
         });
       }
     });
+  }
+
+  getImages(eventId: string): Observable<Image[]> {
+    return this.db.collection<Image>(`events/${eventId}/images`).valueChanges();
   }
 }

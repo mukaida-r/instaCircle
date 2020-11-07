@@ -1,6 +1,4 @@
-<ng-container *ngIf="event$ | async; else blank">
-  <app-image-list></app-image-list>
-</ng-container>
+<app-image-list *ngIf="event$ | async; else blank"></app-image-list>
 <ng-template #blank>
   <div class="container">
     <div class="event__blank">

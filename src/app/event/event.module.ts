@@ -9,6 +9,14 @@ import { CommentFormComponent } from './event/image-detail/comment-form/comment-
 import { CommentListComponent } from './event/image-detail/comment-list/comment-list.component';
 import { ImageCardComponent } from './event/image-list/image-card/image-card.component';
 import { PostImagesComponent } from './post-images/post-images.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -20,6 +28,18 @@ import { PostImagesComponent } from './post-images/post-images.component';
     ImageCardComponent,
     PostImagesComponent,
   ],
-  imports: [CommonModule, EventRoutingModule],
+  imports: [
+    CommonModule,
+    EventRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
+    MatIconModule,
+  ],
 })
 export class EventModule {}
