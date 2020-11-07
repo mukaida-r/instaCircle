@@ -14,7 +14,6 @@ export class EventService {
     password: string
   ): Promise<void> {
     const id = this.db.createId();
-    console.log(id);
     await this.db.doc<Event>(`events/${id}`).set({
       eventId: id,
       ...event,

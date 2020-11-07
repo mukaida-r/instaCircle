@@ -44,7 +44,6 @@ export class CreateEventDialogComponent implements OnInit {
       ownerId: this.authService.uid,
       createAt: firebase.default.firestore.Timestamp.now(),
     };
-    console.log(eventValue);
     this.eventService.createEventData(eventValue, formData.password);
   }
 }
