@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
     thumbnailURL:
       'https://pbs.twimg.com/profile_images/583053177223680000/DN4bVy5B_400x400.jpg',
     ownerId: 'ownerId',
-    password: '',
   };
   eventJoinedLength = 5;
 
