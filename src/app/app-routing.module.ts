@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ShellComponent } from './shell/shell.component';
 
 const routes: Routes = [
   {
@@ -8,18 +9,27 @@ const routes: Routes = [
       import('./welcome/welcome.module').then((m) => m.WelcomeModule),
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
-  },
-  {
-    path: 'event',
-    loadChildren: () =>
-      import('./event/event.module').then((m) => m.EventModule),
-  },
-  {
-    path: 'post-image',
-    loadChildren: () =>
-      import('./post-image/post-image.module').then((m) => m.PostImageModule),
+    path: '',
+    component: ShellComponent,
+    children: [
+      {
+        path: 'home',
+        loadChildren: () =>
+          import('./home/home.module').then((m) => m.HomeModule),
+      },
+      {
+        path: 'event',
+        loadChildren: () =>
+          import('./event/event.module').then((m) => m.EventModule),
+      },
+      {
+        path: 'post-image',
+        loadChildren: () =>
+          import('./post-image/post-image.module').then(
+            (m) => m.PostImageModule
+          ),
+      },
+    ],
   },
 ];
 
