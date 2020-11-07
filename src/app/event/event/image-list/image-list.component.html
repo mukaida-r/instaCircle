@@ -1,1 +1,11 @@
-<p>image-list works!</p>
+<div class="image-list">
+  <div class="container">
+    <div class="image-list__list">
+      <app-image-card
+        class="image-list__item"
+        [image]="image"
+        *ngFor="let image of imageList"
+      ></app-image-card>
+    </div>
+  </div>
+</div>

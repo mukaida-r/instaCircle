@@ -1,0 +1,18 @@
+@import 'variables';
+@import 'mixins';
+
+.image-card {
+  border-radius: 8px;
+  box-shadow: 16px 16px 2rem -2rem hsl(200 50% 20% / 60%);
+  overflow: hidden;
+  &__main {
+    img {
+      width: 100%;
+    }
+  }
+  &__comment {
+    display: block;
+    padding: 16px;
+    text-align: right;
+  }
+}
