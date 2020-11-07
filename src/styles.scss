@@ -8,3 +8,15 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+h2,
+h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.mat-dialog-container {
+  width: 100vh !important;
+  height: 100vh !important;
+  padding: 0 !important;
+}

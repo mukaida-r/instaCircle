@@ -1,0 +1,37 @@
+.join-event-wrapper {
+  width: 100%;
+  height: 100%;
+  background: url(/assets/images/join-event.png) no-repeat center/cover;
+  padding: 80px 0;
+}
+
+.form {
+  padding: 24px;
+}
+
+.heading {
+  text-align: center;
+  width: 80%;
+  padding: 16px 24px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.form {
+  text-align: center;
+  width: 80%;
+  height: 80%;
+  &__name,
+  &__password {
+    width: 100%;
+    padding: 8px 16px;
+    background: #eee;
+    border-radius: 6px;
+    opacity: 0.6;
+  }
+  &__submit {
+    width: 100%;
+    padding: 8px 16px;
+    background: ;
+  }
+}
