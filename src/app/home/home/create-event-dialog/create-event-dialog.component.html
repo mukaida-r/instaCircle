@@ -1,1 +1,31 @@
-<p>create-event-dialog works!</p>
+<div class="created-event-list">
+  <div class="container">
+    <form [formGroup]="form">
+      イベント名
+      <input
+        formControlName="title"
+        type="text"
+        matInput
+        autocomplete="off"
+        required
+      />
+      イベント詳細
+      <input
+        formControlName="discliption"
+        type="text"
+        matInput
+        autocomplete="off"
+        required
+      />
+      password
+      <input
+        formControlName="password"
+        type="text"
+        matInput
+        autocomplete="off"
+        required
+      />
+    </form>
+    <button (click)="createEvent()">作成</button>
+  </div>
+</div>
