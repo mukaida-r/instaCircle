@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import * as firebase from 'firebase';
 import { AuthService } from 'src/app/services/auth.service';
 import { EventService } from 'src/app/services/event.service';
@@ -12,18 +12,18 @@ import { Event } from '../../../interfaces/event';
 })
 export class CreateEventDialogComponent implements OnInit {
   form = this.fb.group({
-    title: [''],
-    password: [''],
-    discliption: [''],
+    title: ['', [Validators.required, Validators.maxLength(40)]],
+    password: ['', [Validators.required, Validators.maxLength(40)]],
+    discliption: ['', [Validators.required, Validators.maxLength(40)]],
   });
 
-  get title() {
+  get titleControl() {
     return this.form.get('title') as FormControl;
   }
-  get password() {
+  get passwordControl() {
     return this.form.get('password') as FormControl;
   }
-  get discliption() {
+  get discliptionControl() {
     return this.form.get('discliption') as FormControl;
   }
 
@@ -35,7 +35,7 @@ export class CreateEventDialogComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  createEvent() {
+  submit() {
     const formData = this.form.value;
     const eventValue: Omit<Event, 'eventId'> = {
       title: formData.title,
@@ -44,6 +44,6 @@ export class CreateEventDialogComponent implements OnInit {
       ownerId: this.authService.uid,
       createAt: firebase.default.firestore.Timestamp.now(),
     };
-    this.eventService.createEventData(eventValue, formData.password);
+    this.eventService.createEvent(eventValue, formData.password);
   }
 }
