@@ -52,6 +52,8 @@ h3 {
   padding: 0 !important;
   @include pc {
     width: 80% !important;
-    height: 80% !important;
+    height: 100% !important;
+    margin: 0 auto;
+    box-sizing: border-box !important;
   }
 }
