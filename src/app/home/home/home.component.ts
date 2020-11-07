@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { JoinEventDialogComponent } from './join-event-dialog/join-event-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
+
+  openJoinEventDialog() {
+    this.dialog.open(JoinEventDialogComponent, {
+      maxWidth: '100vw',
+      minWidth: '50%',
+      autoFocus: false,
+      restoreFocus: false,
+    });
+  }
 }
