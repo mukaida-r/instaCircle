@@ -1,10 +1,9 @@
 export interface Event {
-  eventId: number;
+  eventId: string;
   password: string;
   title: string;
   discliption: string;
   thumbnailURL: string;
-  ownerUserId: string;
-  joinedUid: string[];
+  ownerId: string;
   createAt: Date;
 }

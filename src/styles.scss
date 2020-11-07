@@ -35,3 +35,17 @@ img {
     padding: 0 24px;
   }
 }
+
+.mat-tab-label {
+  min-width: 50% !important;
+  font-family: $font-default;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #fa776d;
+}
+
+.mat-tab-body.mat-tab-body-active {
+  height: 100vh;
+}
