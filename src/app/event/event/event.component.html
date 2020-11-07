@@ -1,1 +1,12 @@
-<app-image-list></app-image-list>
+<ng-container *ngIf="event$ | async; else blank">
+  <app-image-list></app-image-list>
+</ng-container>
+<ng-template #blank>
+  <div class="container">
+    <div class="event__blank">
+      <p>お探しのイベントは見つかりませんでした。</p>
+      <p>イベントIDをご確認ください。</p>
+      <a routerLink="/" class="event__top-btn">トップページへ戻る</a>
+    </div>
+  </div>
+</ng-template>

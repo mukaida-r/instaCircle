@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { Event } from '../interfaces/event';
 import { Password } from '../interfaces/password';
 
@@ -22,5 +23,9 @@ export class EventService {
       eventId: id,
       password,
     });
+  }
+
+  getEvent(id: string): Observable<any> {
+    return this.db.doc(`events/${id}`).valueChanges();
   }
 }

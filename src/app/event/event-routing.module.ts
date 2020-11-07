@@ -7,6 +7,10 @@ const routes: Routes = [
     path: '',
     component: EventComponent,
   },
+  {
+    path: ':eventId',
+    component: EventComponent,
+  },
 ];
 
 @NgModule({
