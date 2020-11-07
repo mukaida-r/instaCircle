@@ -3,16 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
-import { CreateEventListComponent } from './create-event-list/create-event-list.component';
-import { CreatedEventListComponent } from './created-event-list/created-event-list.component';
-import { JoinedEventListComponent } from './joined-event-list/joined-event-list.component';
 import { CreateEventDialogComponent } from './home/create-event-dialog/create-event-dialog.component';
 import { JoinEventDialogComponent } from './home/join-event-dialog/join-event-dialog.component';
+import { CreatedEventListComponent } from './home/created-event-list/created-event-list.component';
+import { JoinedEventListComponent } from './home/joined-event-list/joined-event-list.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    CreateEventListComponent,
+    CreatedEventListComponent,
     CreatedEventListComponent,
     JoinedEventListComponent,
     CreateEventDialogComponent,
