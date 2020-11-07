@@ -3,8 +3,4 @@ export interface User {
   name: string;
   avatarURL: string;
   createdAt: Date;
-  joinedEvent: {
-    uploadImageIds: string[];
-    joinedEventId: string;
-  };
 }
