@@ -11,7 +11,7 @@
   },
   "hosting": [
     {
-      "public": "public",
+      "public": "dist/Instacircle",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
