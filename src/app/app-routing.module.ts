@@ -11,6 +11,16 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
+  {
+    path: 'event',
+    loadChildren: () =>
+      import('./event/event.module').then((m) => m.EventModule),
+  },
+  {
+    path: 'post-image',
+    loadChildren: () =>
+      import('./post-image/post-image.module').then((m) => m.PostImageModule),
+  },
 ];
 
 @NgModule({
