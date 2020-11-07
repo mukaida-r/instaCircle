@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Event } from 'src/app/interfaces/event';
 import { CreateEventDialogComponent } from './create-event-dialog/create-event-dialog.component';
 import { JoinEventDialogComponent } from './join-event-dialog/join-event-dialog.component';
 
@@ -9,6 +10,16 @@ import { JoinEventDialogComponent } from './join-event-dialog/join-event-dialog.
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  event: Omit<Event, 'createAt'> = {
+    eventId: 'id',
+    title: 'title',
+    discliption: 'description',
+    thumbnailURL:
+      'https://pbs.twimg.com/profile_images/583053177223680000/DN4bVy5B_400x400.jpg',
+    ownerId: 'ownerId',
+  };
+  eventJoinedLength = 5;
+
   constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
