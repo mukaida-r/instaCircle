@@ -2,7 +2,10 @@
   <div class="image-card__main">
     <img [src]="image.imageURL" alt="" />
   </div>
-  <a class="image-card__comment" routerLink="">
+  <a
+    class="image-card__comment"
+    [routerLink]="'/events/' + image.eventId + '/images/' + image.imageId"
+  >
     {{
       comments.length
         ? 'コメントを見る(' + comments.length + ')'
