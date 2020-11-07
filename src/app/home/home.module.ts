@@ -7,6 +7,10 @@ import { CreateEventDialogComponent } from './home/create-event-dialog/create-ev
 import { JoinEventDialogComponent } from './home/join-event-dialog/join-event-dialog.component';
 import { CreatedEventListComponent } from './home/created-event-list/created-event-list.component';
 import { JoinedEventListComponent } from './home/joined-event-list/joined-event-list.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -17,6 +21,14 @@ import { JoinedEventListComponent } from './home/joined-event-list/joined-event-
     CreateEventDialogComponent,
     JoinEventDialogComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+  ],
 })
 export class HomeModule {}
