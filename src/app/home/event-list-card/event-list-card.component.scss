@@ -1,0 +1,26 @@
+@import '~@angular/material/theming';
+@import 'variables';
+
+.event-card {
+  padding: 16px;
+  border-radius: 16px;
+  background-color: $color-base;
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  @include mat-elevation-transition;
+  @include mat-elevation(2);
+  &__thumbnail {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  &__title {
+    font-family: $font-default;
+    margin: 0;
+  }
+  &__menber-length {
+    font-family: $font-default;
+  }
+}

@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'mixins';
+
+.mat-tab {
+  height: 100vh;
+  &__card-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 24px;
+    gap: 24px;
+    @include pc {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
