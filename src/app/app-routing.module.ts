@@ -13,7 +13,8 @@ const routes: Routes = [
     component: ShellComponent,
     children: [
       {
-        path: 'home',
+        path: '',
+        pathMatch: 'full',
         loadChildren: () =>
           import('./home/home.module').then((m) => m.HomeModule),
       },
