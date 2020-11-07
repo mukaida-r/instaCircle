@@ -39,7 +39,6 @@ export class AuthService {
         this.snackBar.open('ログインしました。', '閉じる');
       })
       .catch((error) => {
-        console.error(error.message);
         this.snackBar.open(
           'ログインエラーです。数秒後にもう一度お試しください。',
           '閉じる'
@@ -54,7 +53,6 @@ export class AuthService {
         this.snackBar.open('ログアウトしました。', '閉じる');
       })
       .catch((error) => {
-        console.error(error.message);
         this.snackBar.open(
           'ログアウトエラーです。数秒後にもう一度お試しください。',
           '閉じる'
