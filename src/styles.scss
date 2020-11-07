@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'mixins';
+@import 'material-theme';
 
 html,
 body {
@@ -22,6 +23,10 @@ a {
 img {
   max-width: 100%;
   vertical-align: middle;
+}
+
+button {
+  outline: none;
 }
 
 .container {
@@ -48,4 +53,21 @@ img {
 
 .mat-tab-body.mat-tab-body-active {
   height: 100vh;
+  h2,
+  h3 {
+    padding: 0;
+    margin: 0;
+  }
+
+  .mat-dialog-container {
+    width: 100vh !important;
+    height: 100vh !important;
+    padding: 0 !important;
+    @include pc {
+      width: 80% !important;
+      height: 100% !important;
+      margin: 0 auto;
+      box-sizing: border-box !important;
+    }
+  }
 }

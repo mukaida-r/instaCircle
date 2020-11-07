@@ -1,1 +1,73 @@
-<p>create-event-dialog works!</p>
+<div class="create-event-wrapper">
+  <div class="heading">
+    <h2 class="heading__text">イベントを作成</h2>
+  </div>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field class="form__password">
+      <input
+        matInput
+        formControlName="title"
+        type="text"
+        autocomplete="off"
+        placeholder="イベント名"
+        required
+      />
+      <mat-error *ngIf="titleControl.hasError('required')"
+        >必須入力です</mat-error
+      >
+      <mat-error *ngIf="titleControl.hasError('maxlength')"
+        >文字数は最大で40文字までです</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form__discliption">
+      <input
+        matInput
+        formControlName="discliption"
+        type="text"
+        autocomplete="off"
+        placeholder="イベント詳細"
+        required
+      />
+      <mat-error *ngIf="titleControl.hasError('required')"
+        >必須入力です</mat-error
+      >
+      <mat-error *ngIf="titleControl.hasError('maxlength')"
+        >文字数は最大で40文字までです</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form__password">
+      <input
+        matInput
+        formControlName="password"
+        type="password"
+        autocomplete="off"
+        placeholder="🗝 パスワード"
+        required
+      />
+      <mat-error *ngIf="titleControl.hasError('required')"
+        >必須入力です</mat-error
+      >
+      <mat-error *ngIf="titleControl.hasError('maxlength')"
+        >文字数は最大で40文字までです</mat-error
+      >
+    </mat-form-field>
+
+    <mat-dialog-actions>
+      <button
+        mat-button
+        type="submit"
+        class="form__submit"
+        [mat-dialog-close]="true"
+        [disabled]="form.invalid || form.pristine"
+      >
+        作成
+      </button>
+      <button class="form__cancel" mat-button matDialogClose type="button">
+        キャンセル
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

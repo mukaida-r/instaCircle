@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Event } from 'src/app/interfaces/event';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-event',
@@ -6,7 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event.component.scss'],
 })
 export class EventComponent implements OnInit {
-  constructor() {}
+  event$: Observable<Event>;
+
+  constructor(
+    private route: ActivatedRoute,
+    private eventServise: EventService
+  ) {
+    this.route.paramMap.subscribe((params) => {
+      this.event$ = this.eventServise.getEvent(params.get('eventId'));
+    });
+  }
 
   ngOnInit(): void {}
 }

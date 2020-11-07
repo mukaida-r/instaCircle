@@ -5,5 +5,5 @@ export interface Event {
   discliption: string;
   thumbnailURL: string;
   ownerId: string;
-  createAt: Date;
+  createAt: firebase.default.firestore.Timestamp;
 }

@@ -14,21 +14,15 @@ const routes: Routes = [
     component: ShellComponent,
     children: [
       {
-        path: 'home',
+        path: '',
+        pathMatch: 'full',
         loadChildren: () =>
           import('./home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'event',
+        path: 'events',
         loadChildren: () =>
           import('./event/event.module').then((m) => m.EventModule),
-      },
-      {
-        path: 'post-image',
-        loadChildren: () =>
-          import('./post-image/post-image.module').then(
-            (m) => m.PostImageModule
-          ),
       },
     ],
   },

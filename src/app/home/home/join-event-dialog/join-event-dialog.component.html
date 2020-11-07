@@ -1,1 +1,36 @@
-<p>join-event-dialog works!</p>
+<div class="join-event-wrapper">
+  <div class="heading">
+    <h2 class="heading__text">イベントに参加</h2>
+  </div>
+
+  <form class="form" (ngSubmit)="submit()">
+    <mat-form-field class="form__password">
+      <input
+        type="password"
+        matInput
+        placeholder="🗝 パスワード"
+        [formControl]="passwordForm"
+        autocomplete="off"
+        required
+      />
+      <mat-error *ngIf="passwordForm.hasError('required')"
+        >必須入力です</mat-error
+      >
+    </mat-form-field>
+
+    <mat-dialog-actions>
+      <button
+        mat-button
+        class="form__submit"
+        type="submit"
+        [mat-dialog-close]="true"
+        [disabled]="passwordForm.invalid || passwordForm.pristine"
+      >
+        参加
+      </button>
+      <button class="form__cancel" mat-button matDialogClose type="button">
+        キャンセル
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>
