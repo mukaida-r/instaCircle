@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-join-event-dialog',
@@ -12,14 +15,33 @@ export class JoinEventDialogComponent implements OnInit {
 
   user: User;
   isProcessing: boolean;
+  isPossible: boolean;
+  eventId: string;
 
   get password(): FormControl {
     return this.passwordForm.get('password') as FormControl;
   }
 
-  constructor() {}
+  constructor(
+    private eventService: EventService,
+    private router: Router,
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      id: string;
+    }
+  ) {}
 
   ngOnInit(): void {}
 
-  submit() {}
+  async submit() {
+    console.log(this.data);
+    console.log(this.passwordForm.value);
+
+    this.isPossible = await this.eventService.judgePassword(
+      this.passwordForm.value,
+      this.data.id
+    );
+
+    this.router.navigateByUrl(`events/${this.data.id}`);
+  }
 }

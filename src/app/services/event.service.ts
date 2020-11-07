@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireFunctions } from '@angular/fire/functions';
 import { Observable } from 'rxjs';
 import { Event } from '../interfaces/event';
 import { Password } from '../interfaces/password';
@@ -8,7 +9,10 @@ import { Password } from '../interfaces/password';
   providedIn: 'root',
 })
 export class EventService {
-  constructor(private db: AngularFirestore) {}
+  constructor(
+    private db: AngularFirestore,
+    private fns: AngularFireFunctions
+  ) {}
 
   async createEvent(
     event: Omit<Event, 'eventId'>,
@@ -27,5 +31,10 @@ export class EventService {
 
   getEvent(id: string): Observable<any> {
     return this.db.doc(`events/${id}`).valueChanges();
+  }
+
+  judgePassword(eventId: string, password: string) {
+    const func = this.fns.httpsCallable('judgementPassword');
+    return func({ eventId, password }).toPromise();
   }
 }
