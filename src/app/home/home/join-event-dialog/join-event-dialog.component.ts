@@ -8,28 +8,16 @@ import { User } from 'src/app/interfaces/user';
   styleUrls: ['./join-event-dialog.component.scss'],
 })
 export class JoinEventDialogComponent implements OnInit {
-  readonly MAX_EVENT_NAME_LENGTH = 50;
-
-  form = this.fb.group({
-    eventName: [
-      '',
-      [Validators.required, Validators.maxLength(this.MAX_EVENT_NAME_LENGTH)],
-    ],
-    password: ['', [Validators.required]],
-  });
+  passwordForm = new FormControl('', [Validators.required]);
 
   user: User;
   isProcessing: boolean;
 
-  get eventName(): FormControl {
-    return this.form.get('eventName') as FormControl;
-  }
-
   get password(): FormControl {
-    return this.form.get('password') as FormControl;
+    return this.passwordForm.get('password') as FormControl;
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor() {}
 
   ngOnInit(): void {}
 

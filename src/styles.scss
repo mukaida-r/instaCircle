@@ -24,6 +24,10 @@ img {
   vertical-align: middle;
 }
 
+button {
+  outline: none;
+}
+
 .container {
   box-sizing: border-box;
   display: block;
@@ -46,4 +50,8 @@ h3 {
   width: 100vh !important;
   height: 100vh !important;
   padding: 0 !important;
+  @include pc {
+    width: 80% !important;
+    height: 80% !important;
+  }
 }
