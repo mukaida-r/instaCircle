@@ -1,7 +1,20 @@
 <div class="container">
-  <div class="actions">
-    <button class="actions__join-btn">イベント参加</button>
-    <button class="actions__create-btn">イベント作成</button>
+  <div class="home-header">
+    <div class="descriptions">
+      <p class="descriptions__title">Instacircleについて</p>
+      <p>家族や友達と画像を共有出来ます。</p>
+      <p>
+        イベントを作成してリンクをを共有したり、教えてもらったリンクに参加しましょう！
+      </p>
+    </div>
+    <div class="actions">
+      <button (click)="openJoinEventDialog()" class="actions__join-btn">
+        イベント参加
+      </button>
+      <button (click)="openCreateEventDialog()" class="actions__create-btn">
+        イベント作成
+      </button>
+    </div>
   </div>
   <mat-tab-group class="mat-tab" mat-align-tabs="center">
     <mat-tab label="主催イベント">
