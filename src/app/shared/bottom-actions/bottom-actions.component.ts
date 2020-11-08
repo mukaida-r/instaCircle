@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateEventDialogComponent } from 'src/app/home/home/create-event-dialog/create-event-dialog.component';
 import { JoinEventDialogComponent } from 'src/app/home/home/join-event-dialog/join-event-dialog.component';
@@ -9,6 +9,12 @@ import { JoinEventDialogComponent } from 'src/app/home/home/join-event-dialog/jo
   styleUrls: ['./bottom-actions.component.scss'],
 })
 export class BottomActionsComponent implements OnInit {
+  @Input() type?: {
+    homeStyle?: boolean;
+    addImageNone?: boolean;
+    sharedUrlNone?: boolean;
+  };
+  @Input() eventUrl?: string;
   constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}

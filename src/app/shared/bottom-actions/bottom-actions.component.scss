@@ -7,6 +7,7 @@
   transition: background-color 0.4s, color 0.4s;
   @include sp {
     position: fixed;
+    z-index: 10;
     bottom: 0;
     width: 100%;
     display: grid;
@@ -28,7 +29,12 @@
       font-weight: 500;
       .material-icons {
         font-size: 20px;
+        color: #fff;
       }
     }
   }
+}
+
+.disabled {
+  display: none;
 }
