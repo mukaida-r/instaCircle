@@ -1,0 +1,61 @@
+@import 'mixins';
+
+.wrap {
+  background: url() no-repeat center/cover;
+  @include sp {
+    width: 100%;
+  }
+}
+
+.head {
+  max-width: 100%;
+  margin: 24px auto;
+  text-align: center;
+  padding: 80px 0;
+  height: 40%;
+  &__title {
+    letter-spacing: 3px;
+    font-size: 24px;
+  }
+  &__description {
+    margin-bottom: 80px;
+  }
+}
+
+.intro {
+  max-width: 100%;
+  font-size: 30px;
+  letter-spacing: 4px;
+  text-indent: 15px;
+}
+
+.login-nav {
+  border-radius: 20px;
+  line-height: 40px;
+  font-size: 14px;
+  background: #fff;
+  color: #303030;
+  max-width: 80%;
+  height: 40%;
+  margin: 64px auto 48px;
+  &__btn {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 48px;
+    width: 300px;
+    height: 48px;
+    border-radius: 24px;
+    border: 2px solid #111111;
+    transition: ease-in-out 0.3s;
+    background: rgba(#111111, 0);
+    color: #111111;
+    cursor: pointer;
+    outline: none;
+  }
+  &:hover {
+    color: #303030;
+  }
+}
