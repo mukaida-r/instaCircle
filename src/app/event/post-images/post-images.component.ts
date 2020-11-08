@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EventService } from 'src/app/services/event.service';
 import { ImageService } from 'src/app/services/image.service';
+import { Event } from '../../interfaces/event';
 
 @Component({
   selector: 'app-post-images',
