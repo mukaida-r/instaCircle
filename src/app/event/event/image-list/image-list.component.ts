@@ -11,7 +11,6 @@ import { ImageService } from 'src/app/services/image.service';
 export class ImageListComponent implements OnInit {
   eventId: string;
   imageList: Image[];
-  value = location.href;
 
   constructor(
     private route: ActivatedRoute,
