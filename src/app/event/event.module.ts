@@ -17,6 +17,8 @@ import { ImageDetailComponent } from './event/image-detail/image-detail.componen
 import { ImageCardComponent } from './event/image-list/image-card/image-card.component';
 import { ImageListComponent } from './event/image-list/image-list.component';
 import { PostImagesComponent } from './post-images/post-images.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { PostImagesComponent } from './post-images/post-images.component';
     MatSnackBarModule,
     MatIconModule,
     SharedModule,
+    MatTooltipModule,
+    ClipboardModule,
   ],
 })
 export class EventModule {}
