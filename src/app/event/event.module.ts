@@ -17,6 +17,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatSnackBarModule,
     MatIconModule,
+    MatTooltipModule,
+    ClipboardModule,
   ],
 })
 export class EventModule {}

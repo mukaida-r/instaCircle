@@ -10,7 +10,12 @@
       </div>
     </ng-container>
     <ng-template #blank>
-      <a href="" class="image-list__blank"> + 画像を投稿する </a>
+      <a
+        [routerLink]="'/events/' + eventId + '/post-images'"
+        class="image-list__blank"
+      >
+        + 画像を投稿する
+      </a>
     </ng-template>
   </div>
 </div>
