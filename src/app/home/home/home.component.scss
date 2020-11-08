@@ -1,6 +1,56 @@
 @import 'variables';
 @import 'mixins';
 
+.home-header {
+  display: none;
+  @include pc {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    align-items: center;
+    padding-top: 56px;
+    margin: 56px 0;
+  }
+}
+
+.descriptions {
+  &__title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.actions {
+  @include sp {
+    display: none;
+  }
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 24px;
+  flex-direction: column;
+  &__create-btn,
+  &__join-btn {
+    display: inline-block;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 35px;
+    border: 1px solid #f9cdad;
+    background-color: #f9cdad;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    outline: none;
+    transition: background-color 0.4s, color 0.4s;
+    margin-left: auto;
+  }
+  &__create-btn {
+    border: 1px solid #fa776d;
+    background-color: #fa776d;
+  }
+}
+
 .mat-tab {
   height: 100vh;
   &__card-layout {
