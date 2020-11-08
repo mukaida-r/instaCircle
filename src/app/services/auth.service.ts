@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { User } from '../interfaces/user';
 import { shareReplay, switchMap } from 'rxjs/operators';
 import { UserService } from './user.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +28,8 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private snackBar: MatSnackBar,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   async googlelogin(): Promise<void> {
@@ -37,6 +39,7 @@ export class AuthService {
       .signInWithPopup(provider)
       .then(() => {
         this.snackBar.open('ログインしました。', '閉じる');
+        this.router.navigateByUrl('/');
       })
       .catch((error) => {
         this.snackBar.open(
@@ -51,6 +54,7 @@ export class AuthService {
       .signOut()
       .then(() => {
         this.snackBar.open('ログアウトしました。', '閉じる');
+        this.router.navigateByUrl('/welcome');
       })
       .catch((error) => {
         this.snackBar.open(
