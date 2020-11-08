@@ -48,8 +48,11 @@ export class EventService {
     return this.db.doc(`events/${id}`).valueChanges();
   }
 
-  judgePassword(eventId: string, password: string) {
+  judgePassword(password: string, eventId: string) {
+    console.log(eventId);
+    console.log(password);
+
     const func = this.fns.httpsCallable('judgementPassword');
-    return func({ eventId, password }).toPromise();
+    return func({ password, eventId }).toPromise();
   }
 }

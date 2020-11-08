@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
 import { EventService } from 'src/app/services/event.service';
@@ -25,6 +26,7 @@ export class JoinEventDialogComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private router: Router,
+    private snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA)
     public data: {
       id: string;
@@ -41,7 +43,12 @@ export class JoinEventDialogComponent implements OnInit {
       this.passwordForm.value,
       this.data.id
     );
-
-    this.router.navigateByUrl(`events/${this.data.id}`);
+    if (this.isPossible) {
+      this.router.navigateByUrl(`events/${this.data.id}`);
+    } else {
+      this.snackBar.open('パスワードが違います', null, {
+        duration: 2500,
+      });
+    }
   }
 }
