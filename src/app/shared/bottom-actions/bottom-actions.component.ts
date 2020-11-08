@@ -39,6 +39,6 @@ export class BottomActionsComponent implements OnInit {
   }
 
   copyToEventUrl() {
-    this.snckBar.open('URLをコピーしました🥳', null);
+    this.snckBar.open('リンクをコピーしました🥳', null);
   }
 }

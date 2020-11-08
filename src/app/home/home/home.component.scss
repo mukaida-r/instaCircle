@@ -1,6 +1,32 @@
 @import 'variables';
 @import 'mixins';
 
+.actions {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  &__create-btn,
+  &__join-btn {
+    display: inline-block;
+    margin: 20px auto 0;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 35px;
+    border: 1px solid #f9cdad;
+    background-color: #f9cdad;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    outline: none;
+    transition: background-color 0.4s, color 0.4s;
+  }
+  &__create-btn {
+    border: 1px solid #fa776d;
+    background-color: #fa776d;
+  }
+}
+
 .mat-tab {
   height: 100vh;
   &__card-layout {
