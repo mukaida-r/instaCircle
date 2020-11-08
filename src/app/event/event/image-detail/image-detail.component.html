@@ -1,1 +1,5 @@
-<p>image-detail works!</p>
+<div class="conatainer">
+  <ng-template *ngIf="image$ | async as image">
+    <img [src]="image.imageURL" [alt]="" />
+  </ng-template>
+</div>
