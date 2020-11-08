@@ -17,6 +17,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { CropperModule } from '@deer-inc/cropper';
+import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
     CommentListComponent,
     ImageCardComponent,
     PostImagesComponent,
+    EditImageDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +43,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatSnackBarModule,
     MatIconModule,
+    CropperModule,
   ],
 })
 export class EventModule {}
