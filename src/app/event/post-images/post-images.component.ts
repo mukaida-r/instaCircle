@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { EventService } from 'src/app/services/event.service';
 import { ImageService } from 'src/app/services/image.service';
 import { EditImageDialogComponent } from '../edit-image-dialog/edit-image-dialog.component';
+import { Event } from '../../interfaces/event';
 
 @Component({
   selector: 'app-post-images',

@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { User } from '../interfaces/user';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Event } from '../interfaces/event';
 import { AuthService } from '../services/auth.service';
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +23,11 @@ export class HeaderComponent implements OnInit {
     return this.passwordForm.get('password') as FormControl;
   }
 
-  constructor(public authService: AuthService) {}
+  constructor(
+    public authService: AuthService,
+    private route: ActivatedRoute,
+    private eventService: EventService
+  ) {}
 
   ngOnInit(): void {}
 }

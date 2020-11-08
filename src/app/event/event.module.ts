@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { CropperModule } from '@deer-inc/cropper';
 import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.
     MatSnackBarModule,
     MatIconModule,
     CropperModule,
+    ClipboardModule,
   ],
 })
 export class EventModule {}
