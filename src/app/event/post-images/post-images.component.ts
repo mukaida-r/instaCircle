@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { CropperOptions } from '@deer-inc/cropper';
 import { Observable } from 'rxjs';
 import { EventService } from 'src/app/services/event.service';
 import { ImageService } from 'src/app/services/image.service';
 import { EditImageDialogComponent } from '../edit-image-dialog/edit-image-dialog.component';
 import { Event } from '../../interfaces/event';
+import { Image } from 'src/app/interfaces/image';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-post-images',
@@ -23,6 +24,17 @@ export class PostImagesComponent implements OnInit {
   imageFiles: (File | string)[] = [];
   settingImage: string;
   settingImages: string[];
+  settingImages$: Observable<Image[]>;
+
+  eventId$: Observable<string> = this.route.paramMap.pipe(
+    switchMap((param) => {
+      return param.get('eventId');
+    })
+  );
+
+  images$: Observable<Image[]>;
+  srcs: string[] | ArrayBuffer[];
+  src: string | ArrayBuffer;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +42,10 @@ export class PostImagesComponent implements OnInit {
     private imageService: ImageService,
     private dialog: MatDialog
   ) {
+    this.eventId$.subscribe((id) => {
+      this.eventId = id;
+      this.settingImages$ = this.imageService.getImages(this.eventId);
+    });
     this.route.paramMap.subscribe((params) => {
       this.eventId = params.get('eventId');
       this.event$ = this.eventServise.getEvent(this.eventId);
@@ -38,8 +54,21 @@ export class PostImagesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  selectImages(event) {
-    this.images = Object.values(event.target.files);
+  convertImage(file: File) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  selectImages(event: any) {
+    if (event.target.files.length) {
+      this.images = Object.values(event.target.files);
+      this.images.map((image: File) => {
+        this.convertImage(image);
+      });
+    }
   }
 
   uploadImages() {

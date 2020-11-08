@@ -8,10 +8,16 @@
       multiple
       accept=".png, .jpg, .jpeg"
     />
-    <button (click)="openEditImageDialog()">編集</button>
+
+    <div *ngFor="let src of srcs">
+      <img [src]="src" alt="" />
+      <button (click)="openEditImageDialog()">編集</button>
+    </div>
+
     <button (click)="uploadImages()">投稿</button>
   </div>
 </ng-container>
+
 <ng-template #blank>
   <div class="container">
     <div class="event__blank">
