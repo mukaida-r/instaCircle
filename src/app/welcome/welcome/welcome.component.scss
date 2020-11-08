@@ -3,7 +3,7 @@
 
 .wrap {
   height: 100vh;
-  background-color: $color-main;
+  background-color: #f9cdad;
   @include sp {
     width: 100%;
   }
@@ -12,18 +12,18 @@
 .head {
   color: $color-accent;
   max-width: 100%;
-  margin: 24px auto 0px;
   text-align: center;
-  padding: 80px 0;
+  padding: 80px 0 140px;
   height: 40%;
   &__title {
+    font-family: $font-logo;
     color: $color-accent;
     letter-spacing: 3px;
     font-size: 32px;
     font-weight: 400;
   }
   &__description {
-    margin-bottom: 80px;
+    margin-bottom: 30px;
   }
 }
 
@@ -36,9 +36,12 @@
 }
 
 .repeat {
+  position: relative;
   height: 300px;
   background: url(../../../assets/images/bg04.jpg) no-repeat center/cover;
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
+  background-position: right;
+  margin-left: 40px;
 }
 
 .login-nav {
@@ -51,25 +54,31 @@
   height: 40%;
   margin: 64px auto 48px;
   &__btn {
+    position: relative;
+    text-align-last: left;
+    position: absolute;
+    right: 0;
     display: block;
-    margin: 0 auto;
-    text-align: center;
     font-size: 16px;
     font-weight: 500;
     line-height: 48px;
     width: 300px;
     height: 48px;
-    // border-radius: 24px;
-    // border: 2px solid #111111;
     border: 0px solid #fff;
     transition: ease-in-out 0.3s;
     background: rgba(#111111, 0);
     color: #111111;
+    color: #fff;
     cursor: pointer;
     outline: none;
     background-color: #fa776d;
-    // &:hover {
-    //   background-color: #ffb4af;
-    // }
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.25);
+    mat-icon {
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      display: inline-block;
+      margin-left: 30px;
+    }
   }
 }
