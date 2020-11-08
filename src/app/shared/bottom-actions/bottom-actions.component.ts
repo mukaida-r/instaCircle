@@ -10,9 +10,9 @@ import { JoinEventDialogComponent } from 'src/app/home/home/join-event-dialog/jo
 })
 export class BottomActionsComponent implements OnInit {
   @Input() type?: {
-    homeStyle?: boolean;
-    addImageNone?: boolean;
-    sharedUrlNone?: boolean;
+    eventsStyle?: boolean;
+    addImageStyle?: boolean;
+    sharedUrlStyle?: boolean;
   };
   @Input() eventUrl?: string;
   constructor(private dialog: MatDialog) {}

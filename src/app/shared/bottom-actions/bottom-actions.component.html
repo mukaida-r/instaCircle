@@ -1,10 +1,14 @@
-<div class="bottom-actions">
+<div
+  class="bottom-actions"
+  [class.bottom-actions--home-style]="
+    type.eventsStyle && !type.addImageStyle && !type.sharedUrlStyle
+  "
+>
   <button
     mat-ripple
     mat-button
     class="bottom-actions__join-event"
     (click)="openJoinEventDialog()"
-    [class.home-style]="type.homeStyle"
   >
     <mat-icon>person_add</mat-icon>
     <p>イベント参加</p>
@@ -13,7 +17,6 @@
     mat-ripple
     class="bottom-actions__create-event"
     (click)="openCreateEventDialog()"
-    [class.home-style]="type.homeStyle"
   >
     <mat-icon>assignment_ind</mat-icon>
     <p>イベント作成</p>
@@ -21,7 +24,7 @@
   <button
     mat-ripple
     class="bottom-actions__add-image"
-    [class.disabled]="!type.addImageNone"
+    [class.bottom-actions-disabled]="!type.addImageStyle"
   >
     <mat-icon>add_photo_alternate</mat-icon>
     <p>画像を投稿</p>
@@ -29,7 +32,7 @@
   <button
     mat-ripple
     class="bottom-actions__shared-url"
-    [class.disabled]="!type.sharedUrlNone"
+    [class.bottom-actions-disabled]="!type.addImageStyle"
   >
     <mat-icon>content_paste</mat-icon>
     <p>URLを共有</p>

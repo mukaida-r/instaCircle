@@ -13,7 +13,10 @@
     display: grid;
     grid-template-columns: repeat(4, auto);
     background-color: rgba($color-accent, 0.95);
-    p {
+    &--home-style {
+      grid-template-columns: repeat(2, auto);
+    }
+    & p {
       margin: 0;
       font-size: 12px;
       font-family: $font-default;
@@ -35,6 +38,6 @@
   }
 }
 
-.disabled {
+.bottom-actions-disabled {
   display: none;
 }
