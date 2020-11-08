@@ -44,8 +44,8 @@ export class EventService {
     });
   }
 
-  getEvent(id: string): Observable<any> {
-    return this.db.doc(`events/${id}`).valueChanges();
+  getEvent(id: string): Observable<Event> {
+    return this.db.doc<Event>(`events/${id}`).valueChanges();
   }
 
   judgePassword(password: string, eventId: string) {
