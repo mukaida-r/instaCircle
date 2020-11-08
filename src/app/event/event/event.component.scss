@@ -2,6 +2,76 @@
 @import 'mixins';
 
 .event {
+  &__head {
+    position: relative;
+    padding: 40px 0;
+    background-color: rgba($color-accent, 0.8);
+    @include pc {
+      padding: 80px 0;
+    }
+    &::before {
+      @include pc {
+        content: '';
+        display: block;
+        height: 160px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+      }
+    }
+  }
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: start;
+  }
+  &__thumbnail {
+    position: relative;
+    width: 30%;
+    img {
+      border: 3px solid #fff;
+      border-radius: 4px;
+      box-shadow: 16px 16px 2rem -2rem hsl(200 50% 20% / 60%);
+    }
+  }
+  &__thumbnail-edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: $color-accent;
+  }
+  &__data {
+    position: relative;
+    box-sizing: border-box;
+    width: 70%;
+    padding-left: 24px;
+    margin: 0;
+    color: #fff;
+    @include pc {
+      padding-left: 36px;
+    }
+  }
+  &__title {
+    padding-right: 40px;
+    font-weight: 700;
+    @include pc {
+      font-size: 24px;
+    }
+  }
+  &__description {
+    margin: 16px 0 0;
+    @include pc {
+      margin-top: 32px;
+      font-size: 18px;
+    }
+  }
+  &__actions {
+    position: absolute;
+    top: -10px;
+    right: 0;
+  }
   &__blank {
     box-sizing: border-box;
     display: flex;

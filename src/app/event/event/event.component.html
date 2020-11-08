@@ -1,4 +1,43 @@
-<app-image-list *ngIf="event$ | async; else blank"></app-image-list>
+<ng-container *ngIf="event$ | async as event; else blank">
+  <div class="event__head">
+    <div class="container">
+      <div class="event__inner">
+        <div class="event__thumbnail">
+          <img src="assets/images/image-card-sample01.jpg" alt="" />
+          <div class="event__thumbnail-edit">
+            <button mat-icon-button aria-label="サムネイル変更">
+              <mat-icon>insert_photo</mat-icon>
+            </button>
+          </div>
+        </div>
+        <dl class="event__data">
+          <dt class="event__title">{{ event.title }}</dt>
+          <dd class="event__description">{{ event.discliption }}</dd>
+          <div class="event__actions" *ngIf="uid === event.ownerId">
+            <button
+              mat-icon-button
+              aria-label="イベント設定"
+              [matMenuTriggerFor]="eventMenu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #eventMenu="matMenu">
+              <a mat-menu-item routerLink="/">
+                <mat-icon>edit</mat-icon>
+                <span>編集</span>
+              </a>
+              <a mat-menu-item routerLink="/">
+                <mat-icon>delete</mat-icon>
+                <span>削除</span>
+              </a>
+            </mat-menu>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <app-image-list></app-image-list>
+</ng-container>
 <ng-template #blank>
   <div class="container">
     <div class="event__blank">
