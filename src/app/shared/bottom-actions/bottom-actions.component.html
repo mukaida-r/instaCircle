@@ -30,6 +30,8 @@
     <p>画像を投稿</p>
   </button>
   <button
+    [cdkCopyToClipboard]="eventUrl"
+    (click)="copyToEventUrl()"
     mat-ripple
     class="bottom-actions__shared-url"
     [class.bottom-actions-disabled]="!type.addImageStyle"

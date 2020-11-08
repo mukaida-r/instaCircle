@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreateEventDialogComponent } from 'src/app/home/home/create-event-dialog/create-event-dialog.component';
 import { JoinEventDialogComponent } from 'src/app/home/home/join-event-dialog/join-event-dialog.component';
 
@@ -9,13 +10,13 @@ import { JoinEventDialogComponent } from 'src/app/home/home/join-event-dialog/jo
   styleUrls: ['./bottom-actions.component.scss'],
 })
 export class BottomActionsComponent implements OnInit {
-  @Input() type?: {
-    eventsStyle?: boolean;
-    addImageStyle?: boolean;
-    sharedUrlStyle?: boolean;
+  @Input() type: {
+    eventsStyle: boolean;
+    addImageStyle: boolean;
+    sharedUrlStyle: boolean;
   };
   @Input() eventUrl?: string;
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private snckBar: MatSnackBar) {}
 
   ngOnInit(): void {}
 
@@ -35,5 +36,9 @@ export class BottomActionsComponent implements OnInit {
       autoFocus: false,
       restoreFocus: false,
     });
+  }
+
+  copyToEventUrl() {
+    this.snckBar.open('URLをコピーしました🥳', null);
   }
 }
