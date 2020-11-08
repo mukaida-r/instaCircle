@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { Event } from '../interfaces/event';
 import { AuthService } from '../services/auth.service';
 import { EventService } from '../services/event.service';
+import { MatDialog } from '@angular/material/dialog';
+import { JoinEventDialogComponent } from '../shared/join-event-dialog/join-event-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -26,8 +28,19 @@ export class HeaderComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private route: ActivatedRoute,
-    private eventService: EventService
+    private eventService: EventService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {}
+
+  openJoinEventDialog(id?: string) {
+    this.dialog.open(JoinEventDialogComponent, {
+      maxWidth: '100vw',
+      minWidth: '50%',
+      autoFocus: false,
+      restoreFocus: false,
+      data: { id },
+    });
+  }
 }
