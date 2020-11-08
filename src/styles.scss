@@ -58,16 +58,16 @@ button {
     padding: 0;
     margin: 0;
   }
+}
 
-  .mat-dialog-container {
-    width: 100vh !important;
-    height: 100vh !important;
-    padding: 0 !important;
-    @include pc {
-      width: 80% !important;
-      height: 100% !important;
-      margin: 0 auto;
-      box-sizing: border-box !important;
-    }
+.mat-dialog-container {
+  width: 100vh !important;
+  height: 100vh !important;
+  padding: 0 !important;
+  @include pc {
+    width: 80% !important;
+    height: 100% !important;
+    margin: 0 auto;
+    box-sizing: border-box !important;
   }
 }

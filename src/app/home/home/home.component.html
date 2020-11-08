@@ -1,4 +1,21 @@
 <div class="container">
+  <div class="home-header">
+    <div class="descriptions">
+      <p class="descriptions__title">Instacircleについて</p>
+      <p>家族や友達と画像を共有出来ます。</p>
+      <p>
+        イベントを作成してリンクをを共有したり、教えてもらったリンクに参加しましょう！
+      </p>
+    </div>
+    <div class="actions">
+      <button (click)="openJoinEventDialog()" class="actions__join-btn">
+        イベント参加
+      </button>
+      <button (click)="openCreateEventDialog()" class="actions__create-btn">
+        イベント作成
+      </button>
+    </div>
+  </div>
   <mat-tab-group class="mat-tab" mat-align-tabs="center">
     <mat-tab label="主催イベント">
       <div class="mat-tab__card-layout">
@@ -34,5 +51,10 @@
     </mat-tab>
   </mat-tab-group>
 </div>
-<button (click)="openJoinEventDialog()">イベントに参加する</button>
-<button (click)="openCreateEventDialog()">イベントを作成する</button>
+<app-bottom-actions
+  [type]="{
+    eventsStyle: true,
+    addImageStyle: false,
+    sharedUrlStyle: false
+  }"
+></app-bottom-actions>
