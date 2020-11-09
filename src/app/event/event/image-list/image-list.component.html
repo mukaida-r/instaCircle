@@ -9,9 +9,21 @@
         ></app-image-card>
       </div>
     </ng-container>
-    <button [cdkCopyToClipboard]="value">URL共有</button>
     <ng-template #blank>
-      <a href="" class="image-list__blank"> + 画像を投稿する </a>
+      <a
+        [routerLink]="'/events/' + eventId + '/post-images'"
+        class="image-list__blank"
+      >
+        + 画像を投稿する
+      </a>
     </ng-template>
   </div>
 </div>
+<app-bottom-actions
+  [type]="{
+    eventsStyle: true,
+    addImageStyle: true,
+    sharedUrlStyle: true
+  }"
+  [eventUrl]="eventUrl"
+></app-bottom-actions>

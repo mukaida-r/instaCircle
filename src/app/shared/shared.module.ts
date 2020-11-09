@@ -7,9 +7,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { SharedRoutingModule } from './shared-routing.module';
+import { BottomActionsComponent } from './bottom-actions/bottom-actions.component';
+import { MatRippleModule } from '@angular/material/core';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [JoinEventDialogComponent],
+  declarations: [JoinEventDialogComponent, BottomActionsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,6 +24,13 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatInputModule,
     ReactiveFormsModule,
+    SharedRoutingModule,
+    MatIconModule,
+    MatDialogModule,
+    MatRippleModule,
+    ClipboardModule,
+    MatSnackBarModule,
   ],
+  exports: [BottomActionsComponent, JoinEventDialogComponent],
 })
 export class SharedModule {}

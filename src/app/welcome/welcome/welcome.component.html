@@ -1,9 +1,25 @@
-<p>welcome works!</p>
-<ng-container *ngIf="authService.user$ | async as user; else blank">
-  <p>{{ user.name }}</p>
-  <img [src]="user.avatarURL" alt="" />
-  <button (click)="authService.logout()">ログアウト</button>
-</ng-container>
-<ng-template #blank>
-  <button (click)="authService.googlelogin()">ログイン</button>
-</ng-template>
+<div class="wrap">
+  <div class="head">
+    <h1 class="head__title">InstaCircle</h1>
+    <div class="head__description">
+      <p>大切な人との大事な時間を過ごす</p>
+    </div>
+    <p class="intro">家族や仲間と共有</p>
+    <div class="repeat">
+      <ng-template class="login-nav" #blank>
+        <button class="login-nav__btn" (click)="authService.googlelogin()">
+          ログイン
+          <mat-icon aria-hidden="false" aria-label="Example home icon"
+            >arrow_right_alt</mat-icon
+          >
+        </button>
+      </ng-template>
+    </div>
+  </div>
+
+  <ng-container *ngIf="authService.user$ | async as user; else blank">
+    <p>{{ user.name }}</p>
+    <img [src]="user.avatarURL" alt="" />
+    <button (click)="authService.logout()">ログアウト</button>
+  </ng-container>
+</div>
