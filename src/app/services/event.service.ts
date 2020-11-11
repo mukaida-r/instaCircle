@@ -43,7 +43,7 @@ export class EventService {
         ...event,
       })
       .then(() => {
-        this.route.navigateByUrl(`events/${id}`);
+        this.route.navigateByUrl(`event/${id}`);
       });
     await this.db.doc<Password>(`private/${id}`).set({
       eventId: id,

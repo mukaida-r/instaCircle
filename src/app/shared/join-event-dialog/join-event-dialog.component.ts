@@ -44,7 +44,7 @@ export class JoinEventDialogComponent implements OnInit {
       this.data.id
     );
     if (this.isPossible) {
-      this.router.navigateByUrl(`events/${this.data.id}`);
+      this.router.navigateByUrl(`event/${this.data.id}`);
     } else {
       this.snackBar.open('パスワードが違います', null, {
         duration: 2500,

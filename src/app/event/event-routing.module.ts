@@ -9,11 +9,7 @@ const routes: Routes = [
     component: EventComponent,
   },
   {
-    path: ':eventId',
-    component: EventComponent,
-  },
-  {
-    path: ':eventId/post-images',
+    path: 'post-images',
     component: PostImagesComponent,
   },
 ];
