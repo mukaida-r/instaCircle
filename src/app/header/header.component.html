@@ -3,10 +3,14 @@
     <a href="" class="header__logo-link">Instacircle</a>
   </h1>
   <ng-container *ngIf="authService.user$ | async as user; else default">
-    <ng-container *ngIf="event"></ng-container>
-    <button class="header__add-btn">
-      <mat-icon>add</mat-icon> 画像を投稿する
-    </button>
+    <ng-container *ngIf="event$ | async as event">
+      <button
+        class="header__add-btn"
+        [routerLink]="'/event/' + event.eventId + '/post-images'"
+      >
+        <mat-icon>add</mat-icon> 画像を投稿する
+      </button>
+    </ng-container>
     <button
       mat-mini-fab
       [matMenuTriggerFor]="userMenu"
