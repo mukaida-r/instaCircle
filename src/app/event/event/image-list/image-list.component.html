@@ -19,11 +19,15 @@
     </ng-template>
   </div>
 </div>
-<app-bottom-actions
-  [type]="{
-    eventsStyle: true,
-    addImageStyle: true,
-    sharedUrlStyle: true
-  }"
-  [eventUrl]="eventUrl"
-></app-bottom-actions>
+
+<ng-container *ngIf="event$ | async as event">
+  <app-bottom-actions
+    [type]="{
+      eventsStyle: true,
+      addImageStyle: true,
+      sharedUrlStyle: true
+    }"
+    [eventUrl]="eventUrl"
+    [event]="event"
+  ></app-bottom-actions>
+</ng-container>
