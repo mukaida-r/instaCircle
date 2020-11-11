@@ -1,29 +1,100 @@
-<ng-container *ngIf="event$ | async; else blank">
-  <div class="container">
-    <input
-      (change)="selectImages($event)"
-      type="file"
-      id="file"
-      name="file"
-      multiple
-      accept=".png, .jpg, .jpeg"
-    />
-
-    <div *ngFor="let src of srcs">
-      <img [src]="src" alt="" />
-      <button (click)="openEditImageDialog()">編集</button>
+<div class="post-image">
+  <ng-container *ngIf="event$ | async as event; else blank">
+    <a class="post-image__back" [routerLink]="'/events/' + eventId">
+      <mat-icon>west</mat-icon>
+      <mat-icon>home</mat-icon>
+      <span>{{ event.title }}</span>
+    </a>
+    <div class="post-image__title">
+      <h2>写真をアップロード</h2>
+      <div class="action">
+        <input
+          (change)="selectAndSetImages($event)"
+          type="file"
+          #file
+          name="file"
+          multiple
+          accept=".png, .jpg, .jpeg"
+          style="display: none"
+        />
+        <button type="button" (click)="file.click()" class="action__set-btn">
+          <mat-icon>add_photo_alternate</mat-icon>
+        </button>
+      </div>
+      <p>一度に10枚まで投稿できます</p>
     </div>
 
-    <button (click)="uploadImages()">投稿</button>
-  </div>
-</ng-container>
+    <span class="radius-box"></span>
 
-<ng-template #blank>
-  <div class="container">
-    <div class="event__blank">
-      <p>お探しのイベントは見つかりませんでした。</p>
-      <p>イベントIDをご確認ください。</p>
-      <a routerLink="/" class="event__top-btn">トップページへ戻る</a>
+    <div class="container">
+      <form class="form-wrap" (ngSubmit)="uploadImages()">
+        <div class="image-list">
+          <div class="image-list__img" *ngFor="let src of srcs; index as i">
+            <deer-crop-trigger
+              [options]="{
+                aspectRatio: 1 / 1,
+                oldImageUrl: src
+              }"
+              (image)="onCroppedImage($event)"
+            >
+            </deer-crop-trigger>
+            <button
+              type="button"
+              (click)="removeImage(i)"
+              class="image-list__btn"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+
+          <div class="action" *ngIf="srcs.length > 0">
+            <input
+              (change)="selectAndSetImages($event)"
+              type="file"
+              #file
+              name="file"
+              multiple
+              accept=".png, .jpg, .jpeg"
+              style="display: none"
+            />
+            <button
+              type="button"
+              (click)="file.click()"
+              class="action__set-btn"
+            >
+              <mat-icon>add_photo_alternate</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="submit" *ngIf="srcs.length > 0">
+          <button
+            mat-mat-flat-button
+            type="submit"
+            [disabled]="srcs.length > 10 || srcs.length == 0 || isProcessing"
+            class="submit__btn"
+            [class.active]="
+              !(srcs.length > 10 || srcs.length == 0 || isProcessing)
+            "
+          >
+            投稿
+          </button>
+          <p class="submit__error" *ngIf="srcs.length > 10">
+            最大ファイル数を超えています
+          </p>
+          <p align="end">{{ srcs.length }}/{{ MAX_IMAGE_FILE_LENGTH }}枚まで</p>
+        </div>
+      </form>
     </div>
-  </div>
-</ng-template>
+  </ng-container>
+
+  <ng-template #blank>
+    <div class="container">
+      <div class="event__blank">
+        <p>お探しのイベントは見つかりませんでした。</p>
+        <p>イベントIDをご確認ください。</p>
+        <a routerLink="/" class="event__top-btn">トップページへ戻る</a>
+      </div>
+    </div>
+  </ng-template>
+</div>

@@ -27,6 +27,8 @@ img {
 
 button {
   outline: none;
+  border: none;
+  appearance: none;
 }
 
 .container {
@@ -69,5 +71,15 @@ button {
     height: 100% !important;
     margin: 0 auto;
     box-sizing: border-box !important;
+  }
+}
+
+.image {
+  border-radius: 8px;
+  &:before {
+    border-radius: 8px;
+  }
+  &:after {
+    content: 'crop' !important;
   }
 }
