@@ -55,7 +55,7 @@ import { SharedModule } from './shared/shared.module';
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: {
-        duration: 1500,
+        duration: 2500,
       },
     },
   ],

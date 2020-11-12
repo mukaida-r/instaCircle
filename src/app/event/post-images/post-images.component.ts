@@ -4,14 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EventService } from 'src/app/services/event.service';
 import { ImageService } from 'src/app/services/image.service';
-import { EditImageDialogComponent } from '../edit-image-dialog/edit-image-dialog.component';
 import { Event } from '../../interfaces/event';
 import { Image } from 'src/app/interfaces/image';
 import { map } from 'rxjs/operators';
-import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { fade } from 'src/app/animations';
-import { CropperOptions } from '@deer-inc/cropper';
 
 @Component({
   selector: 'app-post-images',
@@ -92,21 +89,7 @@ export class PostImagesComponent implements OnInit {
     this.imageService
       .uploadImages(this.eventId, this.images)
       .then(() => this.router.navigateByUrl('/event/' + this.eventId))
-      .then(() =>
-        this.snackBar.open('ファイルを投稿しました✨', null, {
-          duration: 2500,
-        })
-      )
+      .then(() => this.snackBar.open('ファイルを投稿しました✨'))
       .finally(() => (this.isProcessing = false));
-  }
-
-  openEditImageDialog(src) {
-    this.dialog.open(EditImageDialogComponent, {
-      width: 'initial !important',
-      height: 'initial !important',
-      autoFocus: false,
-      restoreFocus: false,
-      data: { src },
-    });
   }
 }
