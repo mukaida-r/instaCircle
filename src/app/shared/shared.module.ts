@@ -12,9 +12,14 @@ import { BottomActionsComponent } from './bottom-actions/bottom-actions.componen
 import { MatRippleModule } from '@angular/material/core';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 @NgModule({
-  declarations: [JoinEventDialogComponent, BottomActionsComponent],
+  declarations: [
+    JoinEventDialogComponent,
+    BottomActionsComponent,
+    DeleteDialogComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
