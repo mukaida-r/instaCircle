@@ -1,15 +1,37 @@
 <div class="image-card">
   <div class="image-card__main">
     <img [src]="image.imageURL" alt="" />
+    <ng-container *ngIf="user$ | async as user">
+      <button
+        class="image-card__menu"
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        *ngIf="user.uid == image.uid"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="isEditMode()">
+          <mat-icon>edit</mat-icon>編集
+        </button>
+        <button mat-menu-item (click)="openDeleteDialog(image.imageId)">
+          <mat-icon>delete</mat-icon>削除
+        </button>
+      </mat-menu>
+    </ng-container>
   </div>
-  <a
-    class="image-card__comment"
-    [routerLink]="'/events/' + image.eventId + '/images/' + image.imageId"
-  >
-    {{
-      comments.length
-        ? 'コメントを見る(' + comments.length + ')'
-        : 'コメントを投稿する'
-    }}
-  </a>
+
+  <div class="image-card__body">
+    <a
+      class="image-card__comment"
+      [routerLink]="'/event/' + image.eventId + '/images/' + image.imageId"
+    >
+      {{
+        comments.length
+          ? 'コメントを見る(' + comments.length + ')'
+          : 'コメントを投稿する'
+      }}
+    </a>
+  </div>
 </div>

@@ -16,11 +16,18 @@ export class ImageListComponent implements OnInit {
   eventId: string;
   imageList: Image[];
   eventUrl: string = location.href;
+
   event$: Observable<Event>;
 
   eventId$: Observable<string> = this.route.paramMap.pipe(
     map((param) => {
       return param.get('eventId');
+    })
+  );
+
+  imageList$: Observable<Image[]> = this.eventId$.pipe(
+    switchMap((id) => {
+      return this.imageService.getImages(id);
     })
   );
 
@@ -35,8 +42,9 @@ export class ImageListComponent implements OnInit {
       this.eventId = id;
       this.event$ = this.eventService.getEvent(this.eventId);
     });
-    this.imageService.getImages(this.eventId).subscribe((images) => {
-      this.imageList = images;
-    });
+  }
+
+  deleteImage(imageId: string) {
+    this.imageService.deleteImage(imageId, this.eventId);
   }
 }
