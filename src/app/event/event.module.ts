@@ -18,7 +18,6 @@ import { ImageCardComponent } from './event/image-list/image-card/image-card.com
 import { ImageListComponent } from './event/image-list/image-list.component';
 import { PostImagesComponent } from './post-images/post-images.component';
 import { CropperModule } from '@deer-inc/cropper';
-import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -31,7 +30,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     CommentListComponent,
     ImageCardComponent,
     PostImagesComponent,
-    EditImageDialogComponent,
   ],
   imports: [
     CommonModule,
