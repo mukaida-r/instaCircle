@@ -1,9 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Event } from '../interfaces/event';
 import { AuthService } from '../services/auth.service';
 import { EventService } from '../services/event.service';
+import { MatDialog } from '@angular/material/dialog';
+import { JoinEventDialogComponent } from '../shared/join-event-dialog/join-event-dialog.component';
+import { RouteParamsService } from '../services/route-params.service';
 
 @Component({
   selector: 'app-header',
@@ -11,12 +14,31 @@ import { EventService } from '../services/event.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  event = true; // TODO: eventがあるかないかを判定して、画像投稿ボタンの表示切替
+  eventId: string;
+
+  event$: Observable<Event>;
+
   constructor(
     public authService: AuthService,
-    private route: ActivatedRoute,
-    private eventService: EventService
-  ) {}
+    private eventService: EventService,
+    private dialog: MatDialog,
+    private routeService: RouteParamsService
+  ) {
+    this.routeService.eventIdSubject.subscribe((data) => {
+      this.eventId = data;
+      this.event$ = this.eventService.getEvent(this.eventId);
+    });
+  }
 
   ngOnInit(): void {}
+
+  openJoinEventDialog(id?: string) {
+    this.dialog.open(JoinEventDialogComponent, {
+      maxWidth: '100vw',
+      minWidth: '50%',
+      autoFocus: false,
+      restoreFocus: false,
+      data: { id },
+    });
+  }
 }

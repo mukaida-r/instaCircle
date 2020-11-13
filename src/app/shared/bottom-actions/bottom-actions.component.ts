@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreateEventDialogComponent } from 'src/app/home/home/create-event-dialog/create-event-dialog.component';
-import { JoinEventDialogComponent } from 'src/app/home/home/join-event-dialog/join-event-dialog.component';
+import { Event } from 'src/app/interfaces/event';
+import { JoinEventDialogComponent } from '../join-event-dialog/join-event-dialog.component';
 
 @Component({
   selector: 'app-bottom-actions',
@@ -16,6 +17,8 @@ export class BottomActionsComponent implements OnInit {
     sharedUrlStyle: boolean;
   };
   @Input() eventUrl?: string;
+  @Input() event: Event;
+
   constructor(private dialog: MatDialog, private snckBar: MatSnackBar) {}
 
   ngOnInit(): void {}

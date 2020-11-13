@@ -23,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -47,13 +48,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatMenuModule,
     MatTooltipModule,
+    SharedModule,
   ],
   providers: [
     { provide: REGION, useValue: 'asia-northeast1' },
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: {
-        duration: 1500,
+        duration: 2500,
       },
     },
   ],

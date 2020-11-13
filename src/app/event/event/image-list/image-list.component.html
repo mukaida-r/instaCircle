@@ -1,17 +1,19 @@
-<div class="image-list">
+<div class="image-list" *ngIf="event$ | async as event">
   <div class="container">
-    <ng-container *ngIf="imageList && imageList.length > 0; else blank">
+    <ng-container *ngIf="imageList$ | async as imageList; else blank">
       <div class="image-list__list">
         <app-image-card
           class="image-list__item"
           [image]="image"
+          [event]="event"
           *ngFor="let image of imageList"
-        ></app-image-card>
+        >
+        </app-image-card>
       </div>
     </ng-container>
     <ng-template #blank>
       <a
-        [routerLink]="'/events/' + eventId + '/post-images'"
+        [routerLink]="'/event/' + eventId + '/post-images'"
         class="image-list__blank"
       >
         + 画像を投稿する
@@ -19,11 +21,15 @@
     </ng-template>
   </div>
 </div>
-<app-bottom-actions
-  [type]="{
-    eventsStyle: true,
-    addImageStyle: true,
-    sharedUrlStyle: true
-  }"
-  [eventUrl]="eventUrl"
-></app-bottom-actions>
+
+<ng-container *ngIf="event$ | async as event">
+  <app-bottom-actions
+    [type]="{
+      eventsStyle: true,
+      addImageStyle: true,
+      sharedUrlStyle: true
+    }"
+    [eventUrl]="eventUrl"
+    [event]="event"
+  ></app-bottom-actions>
+</ng-container>

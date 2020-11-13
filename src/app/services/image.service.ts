@@ -47,4 +47,14 @@ export class ImageService {
   getImages(eventId: string): Observable<Image[]> {
     return this.db.collection<Image>(`events/${eventId}/images`).valueChanges();
   }
+
+  getImage(eventId: string, imageId: string): Observable<Image> {
+    return this.db
+      .doc<Image>(`events/${eventId}/images/${imageId}`)
+      .valueChanges();
+  }
+
+  deleteImage(eventId: string, imageId: string): Promise<void> {
+    return this.db.doc<Image>(`events/${eventId}/images/${imageId}`).delete();
+  }
 }

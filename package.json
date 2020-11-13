@@ -27,6 +27,8 @@
     "@angular/platform-browser": "~9.1.0",
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
+    "@deer-inc/cropper": "0.0.10",
+    "croppie": "^2.6.5",
     "firebase": "^8.0.1",
     "promise-polyfill": "8.2.0",
     "rxjs": "~6.5.4",

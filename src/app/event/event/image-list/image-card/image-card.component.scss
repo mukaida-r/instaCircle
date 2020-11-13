@@ -24,9 +24,25 @@
       object-fit: cover;
     }
   }
+  &__menu {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.38);
+    color: #fff;
+    mat-icon {
+      height: 32px;
+    }
+  }
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
   &__comment {
     display: block;
     padding: 16px;
-    text-align: right;
   }
 }
