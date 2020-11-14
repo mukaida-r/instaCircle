@@ -19,7 +19,7 @@ const routes: Routes = [
           import('./home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'events',
+        path: 'event/:eventId',
         loadChildren: () =>
           import('./event/event.module').then((m) => m.EventModule),
       },

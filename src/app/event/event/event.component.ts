@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Event } from 'src/app/interfaces/event';
 import { AuthService } from 'src/app/services/auth.service';
 import { EventService } from 'src/app/services/event.service';
+import { RouteParamsService } from 'src/app/services/route-params.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class EventComponent implements OnInit {
     private route: ActivatedRoute,
     private eventServise: EventService,
     private authServise: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private routeService: RouteParamsService
   ) {
     this.route.paramMap.subscribe((params) => {
       this.eventId = params.get('eventId');
@@ -35,6 +37,10 @@ export class EventComponent implements OnInit {
     });
     this.authServise.user$.subscribe((user) => {
       this.uid = user.uid;
+    });
+    this.route.params.subscribe((params) => {
+      const id = params.eventId;
+      this.routeService.eventIdSubject.next((params && id) || undefined);
     });
   }
 

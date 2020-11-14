@@ -17,6 +17,7 @@ import { ImageDetailComponent } from './event/image-detail/image-detail.componen
 import { ImageCardComponent } from './event/image-list/image-card/image-card.component';
 import { ImageListComponent } from './event/image-list/image-list.component';
 import { PostImagesComponent } from './post-images/post-images.component';
+import { CropperModule } from '@deer-inc/cropper';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -42,6 +43,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatFormFieldModule,
     MatSnackBarModule,
     MatIconModule,
+    CropperModule,
     SharedModule,
     MatTooltipModule,
     ClipboardModule,

@@ -27,6 +27,8 @@ img {
 
 button {
   outline: none;
+  border: none;
+  appearance: none;
 }
 
 .container {
@@ -61,7 +63,7 @@ button {
 }
 
 .mat-dialog-container {
-  width: 100vh !important;
+  width: 100vw !important;
   height: 100vh !important;
   padding: 0 !important;
   @include pc {
@@ -69,5 +71,15 @@ button {
     height: 100% !important;
     margin: 0 auto;
     box-sizing: border-box !important;
+  }
+}
+
+.image {
+  border-radius: 8px;
+  &:before {
+    border-radius: 8px;
+  }
+  &:after {
+    content: 'crop' !important;
   }
 }
