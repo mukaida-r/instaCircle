@@ -4,6 +4,9 @@
 .image-list {
   padding-top: 40px;
   padding-bottom: 120px;
+  @include pc {
+    padding-bottom: 240px;
+  }
   &__list {
     display: grid;
     gap: 16px;
@@ -15,19 +18,19 @@
   }
   &__item {
     &:nth-of-type(even) {
-      transform: translateY(60px);
+      transform: translateY(50%);
       @include pc {
         transform: none;
       }
     }
     &:nth-of-type(3n + 2) {
       @include pc {
-        transform: translateY(80px);
+        transform: translateY(60%);
       }
     }
     &:nth-of-type(3n) {
       @include pc {
-        transform: translateY(40px);
+        transform: translateY(30%);
       }
     }
   }
