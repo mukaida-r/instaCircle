@@ -53,11 +53,8 @@ export class ImageService {
       .doc<Image>(`events/${eventId}/images/${imageId}`)
       .valueChanges();
   }
-<<<<<<< HEAD
-=======
 
   deleteImage(eventId: string, imageId: string): Promise<void> {
     return this.db.doc<Image>(`events/${eventId}/images/${imageId}`).delete();
   }
->>>>>>> origin/master
 }
