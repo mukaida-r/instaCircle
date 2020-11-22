@@ -1,6 +1,6 @@
 @import 'variables';
 @import 'mixins';
-@import 'material-theme';
+@import '~@angular/material/theming';
 
 .bottom-actions {
   display: none;
