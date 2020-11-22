@@ -13,7 +13,7 @@
       @include pc {
         content: '';
         display: block;
-        height: 160px;
+        height: 120px;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -28,9 +28,11 @@
     align-items: start;
   }
   &__thumbnail {
+    box-sizing: border-box;
     position: relative;
     width: 30%;
     img {
+      box-sizing: border-box;
       border: 3px solid #fff;
       border-radius: 4px;
       box-shadow: 16px 16px 2rem -2rem hsl(200 50% 20% / 60%);
@@ -51,6 +53,7 @@
     color: #fff;
     @include pc {
       padding-left: 36px;
+      padding-bottom: 40px;
     }
   }
   &__title {
