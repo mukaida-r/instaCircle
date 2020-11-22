@@ -22,7 +22,7 @@ export class CommentFormComponent implements OnInit {
   createComment(image) {
     const comment: Omit<
       Comment,
-      'uid' | 'createdAt' | 'imageURL' | 'id' | 'eventId'
+      'uid' | 'createdAt' | 'imageId' | 'imageURL' | 'id' | 'eventId'
     > = {
       commentBody: this.commentForm.value,
     };
