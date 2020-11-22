@@ -7,7 +7,7 @@
         matTextareaAutosize
         matInput
       ></textarea>
-      <mat-icon matSuffix>send</mat-icon>
+      <mat-icon (click)="createComment(image)" matSuffix>send</mat-icon>
       <mat-error *ngIf="commentForm.hasError('maxLength')"></mat-error>
     </mat-form-field>
   </div>
