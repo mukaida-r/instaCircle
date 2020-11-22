@@ -1,9 +1,9 @@
-<div class="join-event-wrapper">
+<div class="join-event-wrapper" *ngIf="user$ | async as user">
   <div class="heading">
     <h2 class="heading__text">イベントに参加</h2>
   </div>
 
-  <form class="form" (ngSubmit)="submit()">
+  <form class="form" (ngSubmit)="submit(user.uid)">
     <mat-form-field class="form__password">
       <input
         type="password"

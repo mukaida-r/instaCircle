@@ -12,4 +12,11 @@ export class UserService {
   getUserData(uid: string): Observable<User> {
     return this.db.doc<User>(`users/${uid}`).valueChanges();
   }
+
+  joinEvent(eventId: string, uid: string) {
+    this.db.doc(`events/${eventId}/joinedUids/${uid}`).set({
+      eventId,
+      uid,
+    });
+  }
 }
