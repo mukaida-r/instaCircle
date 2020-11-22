@@ -1,25 +1,28 @@
-<div class="wrap">
-  <div class="head">
-    <h1 class="head__title">InstaCircle</h1>
-    <div class="head__description">
-      <p>大切な人との大事な時間を過ごす</p>
-    </div>
-    <p class="intro">家族や仲間と共有</p>
-    <div class="repeat">
-      <ng-template class="login-nav" #blank>
-        <button class="login-nav__btn" (click)="authService.googlelogin()">
-          ログイン
-          <mat-icon aria-hidden="false" aria-label="Example home icon"
-            >arrow_right_alt</mat-icon
+<div class="welcome">
+  <div
+    class="welcome__image"
+    [style.background-image]="'url(/assets/images/welcome/welcome-first.png)'"
+  >
+    <div class="container">
+      <div class="welcome__contents">
+        <p class="welcome__title">instacircle</p>
+        <p class="welcome__text">大切な人との大事な時間を残す</p>
+        <p class="welcome__sub-title">家族や仲間と共有</p>
+        <div class="actions">
+          <button
+            class="actions__sign-up-btn"
+            (click)="authService.googlelogin()"
           >
-        </button>
-      </ng-template>
+            今すぐはじめる
+          </button>
+          <button
+            class="actions__sign-in-btn"
+            (click)="authService.googlelogin()"
+          >
+            サインイン
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-
-  <ng-container *ngIf="authService.user$ | async as user; else blank">
-    <p>{{ user.name }}</p>
-    <img [src]="user.avatarURL" alt="" />
-    <button (click)="authService.logout()">ログアウト</button>
-  </ng-container>
 </div>

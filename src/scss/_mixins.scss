@@ -1,3 +1,9 @@
+@mixin sp-small {
+  @media screen and (max-width: 350px) {
+    @content;
+  }
+}
+
 @mixin sp {
   @media screen and (max-width: 600px) {
     @content;
