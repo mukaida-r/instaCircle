@@ -40,9 +40,7 @@ export class EditComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private eventServise: EventService,
-    private authServise: AuthService,
-    private userService: UserService,
-    private routeService: RouteParamsService
+    private authServise: AuthService
   ) {
     this.route.paramMap.subscribe((params) => {
       this.eventId = params.get('eventId');
