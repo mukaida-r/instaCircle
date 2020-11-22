@@ -5,6 +5,7 @@ export interface Comment {
   createdAt: firebase.default.firestore.Timestamp;
   commentBody: string;
   imageURL: string;
+  imageId: string;
   id: string;
   eventId: string;
 }

@@ -12,7 +12,10 @@ export class CommentService {
 
   createComment(
     image: Image,
-    comment: Omit<Comment, 'uid' | 'createdAt' | 'imageURL' | 'id' | 'eventId'>
+    comment: Omit<
+      Comment,
+      'uid' | 'imageId' | 'createdAt' | 'imageURL' | 'id' | 'eventId'
+    >
   ): Promise<void> {
     const id: string = this.db.createId();
     return this.db
@@ -22,6 +25,7 @@ export class CommentService {
       .set({
         ...comment,
         uid: image.uid,
+        imageId: image.imageId,
         imageURL: image.imageURL,
         id,
         eventId: image.eventId,
