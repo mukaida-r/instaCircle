@@ -79,6 +79,11 @@ export class EventService {
       });
   }
 
+  deleteEvent(eventId: string) {
+    // TODO: イベント削除機能実装
+    this.router.navigateByUrl('/');
+  }
+
   getEvent(id: string): Observable<Event> {
     return this.db.doc<Event>(`events/${id}`).valueChanges();
   }

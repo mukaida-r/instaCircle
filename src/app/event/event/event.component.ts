@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Event } from 'src/app/interfaces/event';
@@ -6,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { EventService } from 'src/app/services/event.service';
 import { RouteParamsService } from 'src/app/services/route-params.service';
 import { UserService } from 'src/app/services/user.service';
+import { EventDeleteDialogComponent } from '../event-delete-dialog/event-delete-dialog.component';
 
 @Component({
   selector: 'app-event',
@@ -22,6 +24,7 @@ export class EventComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private dialog: MatDialog,
     private eventServise: EventService,
     private authServise: AuthService,
     private userService: UserService,
@@ -48,6 +51,17 @@ export class EventComponent implements OnInit {
   getUserAvatarURL(uid: string) {
     this.userService.getUserData(uid).subscribe((user) => {
       this.ownerAvatarURL = user.avatarURL;
+    });
+  }
+
+  openDeleteEventDialog() {
+    this.dialog.open(EventDeleteDialogComponent, {
+      width: '460px',
+      autoFocus: false,
+      restoreFocus: false,
+      data: {
+        eventId: this.eventId,
+      },
     });
   }
 }
