@@ -27,6 +27,9 @@ export class EventComponent implements OnInit {
     private userService: UserService,
     private routeService: RouteParamsService
   ) {
+    this.authServise.user$.subscribe((user) => {
+      this.uid = user.uid;
+    });
     this.route.paramMap.subscribe((params) => {
       this.eventId = params.get('eventId');
       this.event$ = this.eventServise.getEvent(this.eventId);
@@ -34,13 +37,9 @@ export class EventComponent implements OnInit {
         this.ownerId = event.ownerId;
         this.getUserAvatarURL(this.ownerId);
       });
-    });
-    this.authServise.user$.subscribe((user) => {
-      this.uid = user.uid;
-    });
-    this.route.params.subscribe((params) => {
-      const id = params.eventId;
-      this.routeService.eventIdSubject.next((params && id) || undefined);
+      this.routeService.eventIdSubject.next(
+        (params && this.eventId) || undefined
+      );
     });
   }
 
