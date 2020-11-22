@@ -16,41 +16,29 @@
       </button>
     </div>
   </div>
+
   <mat-tab-group class="mat-tab" mat-align-tabs="center">
     <mat-tab label="主催イベント">
       <div class="mat-tab__card-layout">
         <app-event-list-card
+          *ngFor="let event of myOwnedEvents$ | async as events"
           [event]="event"
-          [eventJoinedLength]="eventJoinedLength"
-        ></app-event-list-card>
-        <app-event-list-card
-          [event]="event"
-          [eventJoinedLength]="eventJoinedLength"
-        ></app-event-list-card>
+          >{{ event | json }}</app-event-list-card
+        >
       </div>
     </mat-tab>
+
     <mat-tab label="参加イベント">
       <div class="mat-tab__card-layout">
         <app-event-list-card
+          *ngFor="let event of myOwnedEvents$ | async as events"
           [event]="event"
-          [eventJoinedLength]="eventJoinedLength"
-        ></app-event-list-card>
-        <app-event-list-card
-          [event]="event"
-          [eventJoinedLength]="eventJoinedLength"
-        ></app-event-list-card>
-        <app-event-list-card
-          [event]="event"
-          [eventJoinedLength]="eventJoinedLength"
-        ></app-event-list-card>
-        <app-event-list-card
-          [event]="event"
-          [eventJoinedLength]="eventJoinedLength"
         ></app-event-list-card>
       </div>
     </mat-tab>
   </mat-tab-group>
 </div>
+
 <app-bottom-actions
   [type]="{
     eventsStyle: true,
