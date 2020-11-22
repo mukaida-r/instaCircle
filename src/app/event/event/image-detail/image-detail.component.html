@@ -1,5 +1,7 @@
 <div class="conatainer">
-  <ng-template *ngIf="image$ | async as image">
+  <ng-container *ngIf="image$ | async as image">
     <img [src]="image.imageURL" [alt]="" />
-  </ng-template>
+
+    <app-comment-form [image]="image"></app-comment-form>
+  </ng-container>
 </div>
