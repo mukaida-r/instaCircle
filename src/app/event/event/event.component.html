@@ -45,10 +45,10 @@
                 <mat-icon>edit</mat-icon>
                 <span>編集</span>
               </a>
-              <a mat-menu-item routerLink="/">
+              <button mat-menu-item (click)="openDeleteEventDialog()">
                 <mat-icon>delete</mat-icon>
                 <span>削除</span>
-              </a>
+              </button>
             </mat-menu>
           </div>
         </dl>
