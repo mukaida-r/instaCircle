@@ -41,9 +41,6 @@ export class JoinEventDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   async submit(uid: string) {
-    console.log(this.data);
-    console.log(this.passwordForm.value);
-
     this.isPossible = await this.eventService.judgePassword(
       this.passwordForm.value,
       this.data.id
