@@ -30,7 +30,13 @@ export class HomeComponent implements OnInit {
       return this.eventService.getMyOwnedEvents(id);
     })
   );
-  eventJoinedLength = 5;
+
+  joinedEvents$: Observable<Event[]> = this.user$.pipe(
+    switchMap((user) => {
+      const uid = user.uid;
+      return this.eventService.getJoinedEvents(uid);
+    })
+  );
 
   constructor(
     private dialog: MatDialog,

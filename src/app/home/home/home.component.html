@@ -31,7 +31,7 @@
     <mat-tab label="参加イベント">
       <div class="mat-tab__card-layout">
         <app-event-list-card
-          *ngFor="let event of myOwnedEvents$ | async as events"
+          *ngFor="let event of joinedEvents$ | async as events"
           [event]="event"
         ></app-event-list-card>
       </div>
