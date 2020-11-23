@@ -1,6 +1,8 @@
 <div class="image-card">
   <div class="image-card__main">
-    <img [src]="image.imageURL" alt="" />
+    <div class="image-card__img">
+      <img [src]="image.imageURL" alt="" />
+    </div>
     <ng-container *ngIf="user$ | async as user">
       <button
         class="image-card__menu"

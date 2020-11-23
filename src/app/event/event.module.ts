@@ -20,6 +20,8 @@ import { PostImagesComponent } from './post-images/post-images.component';
 import { CropperModule } from '@deer-inc/cropper';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { EditComponent } from './edit/edit.component';
+import { EventDeleteDialogComponent } from './event-delete-dialog/event-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     CommentListComponent,
     ImageCardComponent,
     PostImagesComponent,
+    EditComponent,
+    EventDeleteDialogComponent,
   ],
   imports: [
     CommonModule,

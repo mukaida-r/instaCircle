@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EditComponent } from './edit/edit.component';
 import { EventComponent } from './event/event.component';
 import { ImageDetailComponent } from './event/image-detail/image-detail.component';
 import { PostImagesComponent } from './post-images/post-images.component';
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'post-images',
     component: PostImagesComponent,
+  },
+  {
+    path: 'edit',
+    component: EditComponent,
   },
   {
     path: 'images/:imageId',

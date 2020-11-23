@@ -1,0 +1,57 @@
+@import 'variables';
+@import 'mixins';
+
+mat-form-field {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.edit {
+  padding: 40px 0;
+  background-color: rgba($color-accent, 0.8);
+  @include pc {
+    padding: 80px 0;
+  }
+  &__box {
+    padding: 40px;
+    max-width: 460px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  &__cropper {
+    max-width: 320px;
+    margin: 32px auto 0;
+  }
+  &__actions {
+    margin-top: 40px;
+  }
+  &__update-btn,
+  &__cancel-btn {
+    box-sizing: border-box;
+    padding: 16px 32px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+  }
+  &__update-btn {
+    cursor: pointer;
+    background-color: $color-accent;
+    transition: opacity 0.4s;
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+  &__cancel-btn {
+    margin-top: 16px;
+    background-color: #757575;
+    transition: background-color 0.4s;
+    &:hover {
+      background-color: #616161;
+    }
+  }
+}

@@ -1,1 +1,7 @@
-<p>image-detail works!</p>
+<div class="conatainer">
+  <ng-container *ngIf="image$ | async as image">
+    <img [src]="image.imageURL" [alt]="" />
+
+    <app-comment-form [image]="image"></app-comment-form>
+  </ng-container>
+</div>

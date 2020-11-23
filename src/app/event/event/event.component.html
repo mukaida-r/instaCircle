@@ -11,15 +11,6 @@
             "
             alt=""
           />
-          <div class="event__thumbnail-edit">
-            <button
-              mat-icon-button
-              aria-label="サムネイル画像変更"
-              matTooltip="サムネイル画像変更"
-            >
-              <mat-icon>insert_photo</mat-icon>
-            </button>
-          </div>
         </div>
         <dl class="event__data">
           <dt class="event__title">{{ event.title }}</dt>
@@ -50,14 +41,14 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #eventMenu="matMenu">
-              <a mat-menu-item routerLink="/">
+              <a mat-menu-item routerLink="/event/{{ eventId }}/edit/">
                 <mat-icon>edit</mat-icon>
                 <span>編集</span>
               </a>
-              <a mat-menu-item routerLink="/">
+              <button mat-menu-item (click)="openDeleteEventDialog()">
                 <mat-icon>delete</mat-icon>
                 <span>削除</span>
-              </a>
+              </button>
             </mat-menu>
           </div>
         </dl>
