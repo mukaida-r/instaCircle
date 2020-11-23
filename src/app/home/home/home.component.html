@@ -23,8 +23,8 @@
         <app-event-list-card
           *ngFor="let event of myOwnedEvents$ | async as events"
           [event]="event"
-          >{{ event | json }}</app-event-list-card
-        >
+          [routerLink]="'/event/' + event.eventId"
+        ></app-event-list-card>
       </div>
     </mat-tab>
 
@@ -33,6 +33,7 @@
         <app-event-list-card
           *ngFor="let event of joinedEvents$ | async as events"
           [event]="event"
+          [routerLink]="'/event/' + event.eventId"
         ></app-event-list-card>
       </div>
     </mat-tab>
