@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { Event } from '../interfaces/event';
-import { JoinedEvents } from '../interfaces/joined-events';
 import { Password } from '../interfaces/password';
 
 @Injectable({
@@ -25,10 +25,22 @@ export class EventService {
       .valueChanges();
   }
 
-  getJoinedEventsData(uid: string) {
+  getJoinedEvents(uid: string): Observable<Event[]> {
     return this.db
-      .collection<JoinedEvents>(`users/${uid}/joinedEvents`)
-      .valueChanges();
+      .collectionGroup<{
+        eventId: string;
+        uid: string;
+      }>('joinedUids', (ref) => ref.where('uid', '==', uid))
+      .valueChanges()
+      .pipe(
+        switchMap((joinedEvents) => {
+          if (joinedEvents.length) {
+            return combineLatest(
+              joinedEvents.map((event) => this.getEvent(event.eventId))
+            );
+          }
+        })
+      );
   }
 
   async createEvent(
