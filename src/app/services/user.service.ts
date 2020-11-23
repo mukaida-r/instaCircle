@@ -18,5 +18,6 @@ export class UserService {
       eventId,
       uid,
     });
+    this.db.doc(`users/${uid}/joinedEvents/${eventId}`).set({ eventId });
   }
 }
