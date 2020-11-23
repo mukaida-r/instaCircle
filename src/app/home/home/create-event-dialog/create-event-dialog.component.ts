@@ -43,6 +43,7 @@ export class CreateEventDialogComponent implements OnInit {
       thumbnailURL: '',
       ownerId: this.authService.uid,
       createAt: firebase.default.firestore.Timestamp.now(),
+      joinedUserCount: 1,
     };
     this.eventService.createEvent(eventValue, formData.password);
   }

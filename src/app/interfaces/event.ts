@@ -5,4 +5,5 @@ export interface Event {
   thumbnailURL: string;
   ownerId: string;
   createAt: firebase.default.firestore.Timestamp;
+  joinedUserCount: number;
 }

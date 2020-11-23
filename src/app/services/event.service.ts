@@ -4,10 +4,10 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { combineLatest, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import * as firebase from 'firebase';
-import { Observable } from 'rxjs';
 import { Event } from '../interfaces/event';
-import { JoinedEvents } from '../interfaces/joined-events';
 import { Password } from '../interfaces/password';
 
 @Injectable({
@@ -21,20 +21,6 @@ export class EventService {
     private router: Router,
     private snackBar: MatSnackBar
   ) {}
-
-  getMyOwnedEvents(uid: string): Observable<Event[]> {
-    return this.db
-      .collectionGroup<Event>('events', (ref) =>
-        ref.where('ownerId', '==', uid)
-      )
-      .valueChanges();
-  }
-
-  getJoinedEventsData(uid: string) {
-    return this.db
-      .collection<JoinedEvents>(`users/${uid}/joinedEvents`)
-      .valueChanges();
-  }
 
   async createEvent(
     event: Omit<Event, 'eventId'>,
@@ -86,6 +72,32 @@ export class EventService {
 
   getEvent(id: string): Observable<Event> {
     return this.db.doc<Event>(`events/${id}`).valueChanges();
+  }
+
+  getMyOwnedEvents(uid: string): Observable<Event[]> {
+    return this.db
+      .collectionGroup<Event>('events', (ref) =>
+        ref.where('ownerId', '==', uid)
+      )
+      .valueChanges();
+  }
+
+  getJoinedEvents(uid: string): Observable<Event[]> {
+    return this.db
+      .collectionGroup<{
+        eventId: string;
+        uid: string;
+      }>('joinedUids', (ref) => ref.where('uid', '==', uid))
+      .valueChanges()
+      .pipe(
+        switchMap((joinedEvents) => {
+          if (joinedEvents.length) {
+            return combineLatest(
+              joinedEvents.map((event) => this.getEvent(event.eventId))
+            );
+          }
+        })
+      );
   }
 
   judgePassword(password: string, eventId: string) {
