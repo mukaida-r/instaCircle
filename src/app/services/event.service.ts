@@ -17,6 +17,30 @@ export class EventService {
     private route: Router
   ) {}
 
+  async createEvent(
+    event: Omit<Event, 'eventId'>,
+    password: string
+  ): Promise<void> {
+    const id = this.db.createId();
+    await this.db
+      .doc<Event>(`events/${id}`)
+      .set({
+        eventId: id,
+        ...event,
+      })
+      .then(() => {
+        this.route.navigateByUrl(`event/${id}`);
+      });
+    await this.db.doc<Password>(`private/${id}`).set({
+      eventId: id,
+      password,
+    });
+  }
+
+  getEvent(id: string): Observable<Event> {
+    return this.db.doc<Event>(`events/${id}`).valueChanges();
+  }
+
   getMyOwnedEvents(uid: string): Observable<Event[]> {
     return this.db
       .collectionGroup<Event>('events', (ref) =>
@@ -41,30 +65,6 @@ export class EventService {
           }
         })
       );
-  }
-
-  async createEvent(
-    event: Omit<Event, 'eventId'>,
-    password: string
-  ): Promise<void> {
-    const id = this.db.createId();
-    await this.db
-      .doc<Event>(`events/${id}`)
-      .set({
-        eventId: id,
-        ...event,
-      })
-      .then(() => {
-        this.route.navigateByUrl(`event/${id}`);
-      });
-    await this.db.doc<Password>(`private/${id}`).set({
-      eventId: id,
-      password,
-    });
-  }
-
-  getEvent(id: string): Observable<Event> {
-    return this.db.doc<Event>(`events/${id}`).valueChanges();
   }
 
   judgePassword(password: string, eventId: string) {
