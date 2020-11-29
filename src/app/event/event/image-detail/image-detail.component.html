@@ -1,7 +1,25 @@
+<header>
+  <app-comment-header
+    *ngIf="imageProvider$ | async as provider"
+    [provider]="provider"
+  ></app-comment-header>
+</header>
 <div class="conatainer">
-  <ng-container *ngIf="image$ | async as image">
-    <img [src]="image.imageURL" [alt]="" />
-
-    <app-comment-form [image]="image"></app-comment-form>
-  </ng-container>
+  <div class="grid" *ngIf="image$ | async as image">
+    <div class="thumbnail">
+      <img [src]="image.imageURL" [alt]="" />
+    </div>
+    <div class="comment">
+      <div class="comment__list">
+        <app-comment-list
+          class="comment__inner"
+          [eventId]="eventId"
+          [imageId]="imageId"
+        ></app-comment-list>
+      </div>
+      <div class="comment__form">
+        <app-comment-form [image]="image"></app-comment-form>
+      </div>
+    </div>
+  </div>
 </div>

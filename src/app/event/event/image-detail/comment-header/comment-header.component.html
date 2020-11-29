@@ -1,0 +1,15 @@
+<header>
+  <button class="back-bottun">
+    <mat-icon (click)="back()">keyboard_arrow_left</mat-icon>
+  </button>
+  <div class="provider">
+    <div class="provider__header">
+      Photo by
+      <span class="provider__name">{{ provider.name }}</span>
+    </div>
+    <figure
+      class="provider__avatar"
+      [style.background-image]="'url(' + provider.avatarURL + ')'"
+    ></figure>
+  </div>
+</header>

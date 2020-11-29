@@ -22,6 +22,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { EditComponent } from './edit/edit.component';
 import { EventDeleteDialogComponent } from './event-delete-dialog/event-delete-dialog.component';
+import { CommentHeaderComponent } from './event/image-detail/comment-header/comment-header.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { EventDeleteDialogComponent } from './event-delete-dialog/event-delete-d
     PostImagesComponent,
     EditComponent,
     EventDeleteDialogComponent,
+    CommentHeaderComponent,
   ],
   imports: [
     CommonModule,
