@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import { User } from './user';
 
 export interface Comment {
   uid: string;
@@ -6,6 +7,10 @@ export interface Comment {
   commentBody: string;
   imageURL: string;
   imageId: string;
-  id: string;
+  commentId: string;
   eventId: string;
+}
+
+export interface CommentWithUser extends Comment {
+  user: User;
 }
