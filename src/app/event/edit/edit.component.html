@@ -44,17 +44,14 @@
             必須入力です。
           </mat-error>
         </mat-form-field>
-        <div class="edit__cropper">
-          <ng-container *ngIf="oldImageUrl">
-            <deer-crop-trigger
-              [options]="{
-                aspectRatio: 1 / 1,
-                oldImageUrl:
-                  oldImageUrl || 'assets/images/image-card-sample01.jpg'
-              }"
-              (image)="onCroppedImage($event)"
-            ></deer-crop-trigger>
-          </ng-container>
+        <div class="edit__cropper" *ngIf="oldImageUrl">
+          <deer-crop-trigger
+            [options]="{
+              aspectRatio: 1 / 1,
+              oldImageUrl: oldImageUrl
+            }"
+            (image)="onCroppedImage($event)"
+          ></deer-crop-trigger>
         </div>
         <div class="edit__actions">
           <button

@@ -22,7 +22,7 @@ export class EditComponent implements OnInit {
   eventId: string;
   imageFile: string;
 
-  oldImageUrl: string;
+  oldImageUrl = '';
   processing = false;
 
   form = this.fb.group({
@@ -41,7 +41,9 @@ export class EditComponent implements OnInit {
     private route: ActivatedRoute,
     private eventServise: EventService,
     private authServise: AuthService
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.eventId = params.get('eventId');
       this.event$ = this.eventServise.getEvent(this.eventId);
@@ -57,8 +59,6 @@ export class EditComponent implements OnInit {
       this.uid = user.uid;
     });
   }
-
-  ngOnInit(): void {}
 
   onCroppedImage(image: string) {
     this.imageFile = image;

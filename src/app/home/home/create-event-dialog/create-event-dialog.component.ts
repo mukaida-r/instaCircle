@@ -40,7 +40,7 @@ export class CreateEventDialogComponent implements OnInit {
     const eventValue: Omit<Event, 'eventId'> = {
       title: formData.title,
       discliption: formData.discliption,
-      thumbnailURL: '',
+      thumbnailURL: 'assets/images/image-card-sample01.jpg',
       ownerId: this.authService.uid,
       createAt: firebase.default.firestore.Timestamp.now(),
       joinedUserCount: 1,
