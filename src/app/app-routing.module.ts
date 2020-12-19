@@ -10,6 +10,11 @@ const routes: Routes = [
       import('./welcome/welcome.module').then((m) => m.WelcomeModule),
   },
   {
+    path: 'settingth',
+    loadChildren: () =>
+      import('./settingth/settingth.module').then((m) => m.SettingthModule),
+  },
+  {
     path: '',
     component: ShellComponent,
     children: [
