@@ -19,7 +19,13 @@
     font-family: $font-logo;
   }
   &__logo-link {
+    display: flex;
+    align-items: center;
     transition: opacity 0.4s;
+    img {
+      transform: translateY(1px);
+      margin-right: 0.25em;
+    }
     &:hover {
       opacity: 0.8;
     }
