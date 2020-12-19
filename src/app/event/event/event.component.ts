@@ -18,7 +18,7 @@ export class EventComponent implements OnInit {
   uid: string;
   event$: Observable<Event>;
   eventId: string;
-  eventInvitateURL = location.href;
+  eventInvitateURL = location.href.replace('event/', '');
   ownerId: string;
   ownerAvatarURL: string;
 
@@ -44,6 +44,7 @@ export class EventComponent implements OnInit {
         (params && this.eventId) || undefined
       );
     });
+    console.log(this.eventInvitateURL);
   }
 
   ngOnInit(): void {}
