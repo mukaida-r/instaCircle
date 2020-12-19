@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginGuard } from './guards/login.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ShellComponent } from './shell/shell.component';
 
@@ -9,6 +10,8 @@ const routes: Routes = [
     path: 'welcome',
     loadChildren: () =>
       import('./welcome/welcome.module').then((m) => m.WelcomeModule),
+    canLoad: [LoginGuard],
+    canActivate: [LoginGuard],
   },
   {
     path: '',

@@ -75,6 +75,9 @@ export class EventService {
   }
 
   getMyOwnedEvents(uid: string): Observable<Event[]> {
+    if (!uid) {
+      return of(null);
+    }
     return this.db
       .collectionGroup<Event>('events', (ref) =>
         ref.where('ownerId', '==', uid)
@@ -83,6 +86,9 @@ export class EventService {
   }
 
   getJoinedEvents(uid: string): Observable<Event[]> {
+    if (!uid) {
+      return of(null);
+    }
     return this.db
       .collectionGroup<{
         eventId: string;
@@ -103,9 +109,6 @@ export class EventService {
   }
 
   judgePassword(password: string, eventId: string) {
-    console.log(eventId);
-    console.log(password);
-
     const func = this.fns.httpsCallable('judgementPassword');
     return func({ password, eventId }).toPromise();
   }

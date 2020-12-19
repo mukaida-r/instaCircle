@@ -13,7 +13,6 @@ import { EventService } from 'src/app/services/event.service';
 })
 export class JoinEventDialogComponent implements OnInit {
   passwordForm = new FormControl('', [Validators.required]);
-
   user: User;
   isProcessing: boolean;
   isPossible: boolean;
@@ -36,9 +35,6 @@ export class JoinEventDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   async submit() {
-    console.log(this.data);
-    console.log(this.passwordForm.value);
-
     this.isPossible = await this.eventService.judgePassword(
       this.passwordForm.value,
       this.data.id

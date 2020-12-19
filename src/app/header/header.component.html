@@ -14,7 +14,7 @@
     <button
       mat-mini-fab
       [matMenuTriggerFor]="userMenu"
-      [style.background-image]="'url(' + user.avatarURL + ')'"
+      [style.background-image]="'url(' + user?.avatarURL + ')'"
       class="header__icon"
     ></button>
     <mat-menu #userMenu="matMenu" class="header__menu">

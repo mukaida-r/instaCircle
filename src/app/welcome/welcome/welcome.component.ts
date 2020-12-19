@@ -14,7 +14,9 @@ export class WelcomeComponent implements OnInit {
 
   login(): void {
     this.authService.googlelogin().then(() => {
-      this.router.navigateByUrl('/');
+      setTimeout(() => {
+        this.router.navigateByUrl('/');
+      }, 600);
     });
   }
 }
