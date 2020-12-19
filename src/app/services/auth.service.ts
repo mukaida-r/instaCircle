@@ -25,7 +25,7 @@ export class AuthService {
   );
 
   constructor(
-    private afAuth: AngularFireAuth,
+    public afAuth: AngularFireAuth,
     private snackBar: MatSnackBar,
     private userService: UserService
   ) {}
