@@ -6,8 +6,14 @@ import { ShellComponent } from './shell/shell.component';
 const routes: Routes = [
   {
     path: 'welcome',
+    pathMatch: 'full',
     loadChildren: () =>
       import('./welcome/welcome.module').then((m) => m.WelcomeModule),
+  },
+  {
+    path: '404',
+    pathMatch: 'full',
+    component: NotFoundComponent,
   },
   {
     path: '',
