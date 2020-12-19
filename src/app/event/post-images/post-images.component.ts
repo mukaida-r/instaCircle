@@ -60,7 +60,6 @@ export class PostImagesComponent implements OnInit {
       this.srcs.push(e.target.result);
     };
     reader.readAsDataURL(file);
-    console.log(file);
   }
 
   selectAndSetImages(event: any) {
@@ -69,15 +68,12 @@ export class PostImagesComponent implements OnInit {
       this.images.map((image: File) => {
         return this.convertImage(image);
       });
-      console.log(this.srcs);
     }
   }
 
   removeImage(i: number) {
     this.images.splice(i, 1);
     this.srcs.splice(i, 1);
-    console.log(this.srcs);
-    console.log(this.images);
   }
 
   onCroppedImage(image: string) {

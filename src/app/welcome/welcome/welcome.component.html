@@ -9,16 +9,10 @@
         <p class="welcome__text">大切な人との大事な時間を残す</p>
         <p class="welcome__sub-title">家族や仲間と共有</p>
         <div class="actions">
-          <button
-            class="actions__sign-up-btn"
-            (click)="authService.googlelogin()"
-          >
+          <button class="actions__sign-up-btn" (click)="login()">
             今すぐはじめる
           </button>
-          <button
-            class="actions__sign-in-btn"
-            (click)="authService.googlelogin()"
-          >
+          <button class="actions__sign-in-btn" (click)="login()">
             サインイン
           </button>
         </div>

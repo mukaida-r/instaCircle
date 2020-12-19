@@ -16,7 +16,7 @@
     <button
       mat-mini-fab
       [matMenuTriggerFor]="userMenu"
-      [style.background-image]="'url(' + user.avatarURL + ')'"
+      [style.background-image]="'url(' + user?.avatarURL + ')'"
       class="header__icon"
     ></button>
     <mat-menu #userMenu="matMenu" class="header__menu">
@@ -28,7 +28,11 @@
         <mat-icon>group</mat-icon>
         <span>イベントに参加する</span>
       </a>
-      <button mat-menu-item (click)="authService.logout()">
+      <a mat-menu-item routerLink="/settings">
+        <mat-icon>settings</mat-icon>
+        <span>設定</span>
+      </a>
+      <button mat-menu-item (click)="logout()">
         <mat-icon>exit_to_app</mat-icon>
         <span>ログアウト</span>
       </button>
