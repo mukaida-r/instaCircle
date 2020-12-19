@@ -57,11 +57,14 @@
   height: 100vh;
   &__card-layout {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 24px;
+    grid-template-columns: 1fr;
+    place-items: center;
+    padding: 24px 0;
     gap: 24px;
     @include pc {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      place-items: center;
+      padding: 24px 48px;
     }
   }
 }

@@ -1,7 +1,17 @@
-<div class="event-card">
-  <img class="event-card__thumbnail" [src]="event.thumbnailURL" alt="" />
-  <h2 class="event-card__title">{{ event.title }}</h2>
-  <span class="event-card__menber-length"
-    >メンバー : {{ event.joinedUserCount }}人</span
-  >
+<div class="container--event-list">
+  <div class="tile" ontouchstart>
+    <img [src]="event.thumbnailURL" />
+    <div class="tile__text">
+      <h1>{{ event.title }}</h1>
+      <h2 class="tile__animate-text">
+        参加中メンバー : {{ event.joinedUserCount }}人
+      </h2>
+      <p class="tile__animate-text">
+        {{ event.discliption }}
+      </p>
+      <div class="tile__date">
+        {{ event.createAt.toDate() | date: 'yyyy/MM/dd' }}
+      </div>
+    </div>
+  </div>
 </div>
