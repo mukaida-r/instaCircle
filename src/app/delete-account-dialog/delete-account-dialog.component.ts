@@ -27,7 +27,7 @@ export class DeleteAccountDialogComponent implements OnInit {
     return callable(this.authService.uid)
       .toPromise()
       .then(() => {
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/welcome');
         this.authService.afAuth.signOut().then(() => {
           this.snackBar.open(
             'アカウントを削除しました。反映には時間がかかります。'

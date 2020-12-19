@@ -3,11 +3,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteAccountDialogComponent } from 'src/app/delete-account-dialog/delete-account-dialog.component';
 
 @Component({
-  selector: 'app-settingth',
-  templateUrl: './settingth.component.html',
-  styleUrls: ['./settingth.component.scss'],
+  selector: 'app-settings',
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.scss'],
 })
-export class SettingthComponent implements OnInit {
+export class SettingsComponent implements OnInit {
   constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}

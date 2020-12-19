@@ -10,9 +10,9 @@ const routes: Routes = [
       import('./welcome/welcome.module').then((m) => m.WelcomeModule),
   },
   {
-    path: 'settingth',
+    path: 'settings',
     loadChildren: () =>
-      import('./settingth/settingth.module').then((m) => m.SettingthModule),
+      import('./settings/settings.module').then((m) => m.SettingsModule),
   },
   {
     path: '',
