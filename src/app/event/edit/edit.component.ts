@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Event } from 'src/app/interfaces/event';
 import { AuthService } from 'src/app/services/auth.service';
 import { EventService } from 'src/app/services/event.service';
-import { RouteParamsService } from 'src/app/services/route-params.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-edit',
@@ -15,8 +13,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class EditComponent implements OnInit {
   readonly titleMaxLength: number = 40;
-  readonly discliptionMaxLength: number = 40;
+  readonly descliptionMaxLength: number = 40;
 
+  isComplete: boolean;
   uid: string;
   event$: Observable<Event>;
   eventId: string;
@@ -30,9 +29,9 @@ export class EditComponent implements OnInit {
       '',
       [Validators.required, Validators.maxLength(this.titleMaxLength)],
     ],
-    discliption: [
+    descliption: [
       '',
-      [Validators.required, Validators.maxLength(this.discliptionMaxLength)],
+      [Validators.required, Validators.maxLength(this.descliptionMaxLength)],
     ],
   });
 
@@ -51,7 +50,7 @@ export class EditComponent implements OnInit {
         this.oldImageUrl = event.thumbnailURL;
         this.form.patchValue({
           title: event.title || '',
-          discliption: event.discliption || '',
+          descliption: event.descliption || '',
         });
       });
     });
@@ -60,11 +59,20 @@ export class EditComponent implements OnInit {
     });
   }
 
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotification($event: any) {
+    if (this.form.dirty) {
+      $event.preventDefault();
+      $event.returnValue = '作業中の内容が失われますがよろしいですか？';
+    }
+  }
+
   onCroppedImage(image: string) {
     this.imageFile = image;
   }
 
   async updateEventData() {
+    this.isComplete = true;
     this.processing = true;
     let eventData: Omit<Event, 'eventId' | 'ownerId' | 'createAt'> = this.form
       .value;

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EditFormGuard } from '../guards/edit-form.guard';
 import { EditComponent } from './edit/edit.component';
 import { EventComponent } from './event/event.component';
 import { ImageDetailComponent } from './event/image-detail/image-detail.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {
     path: 'edit',
     component: EditComponent,
+    canDeactivate: [EditFormGuard],
   },
   {
     path: 'images/:imageId',
