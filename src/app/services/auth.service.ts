@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import * as firebase from 'firebase/app';
 import { Observable, of } from 'rxjs';
-import { User } from '../interfaces/user';
 import { shareReplay, switchMap } from 'rxjs/operators';
+import { User } from '../interfaces/user';
 import { UserService } from './user.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Route } from '@angular/compiler/src/core';
 
 @Injectable({
   providedIn: 'root',
@@ -29,8 +27,7 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private snackBar: MatSnackBar,
-    private userService: UserService,
-    private router: Router
+    private userService: UserService
   ) {}
 
   async googlelogin(): Promise<void> {
@@ -39,8 +36,9 @@ export class AuthService {
     return await this.afAuth
       .signInWithPopup(provider)
       .then(() => {
+        if (this.afAuth.user) {
+        }
         this.snackBar.open('ログインしました。', '閉じる');
-        this.router.navigateByUrl(`/`);
       })
       .catch((error) => {
         this.snackBar.open(
@@ -54,6 +52,8 @@ export class AuthService {
     return await this.afAuth
       .signOut()
       .then(() => {
+        if (this.afAuth.user) {
+        }
         this.snackBar.open('ログアウトしました。', '閉じる');
       })
       .catch((error) => {

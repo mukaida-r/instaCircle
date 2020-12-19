@@ -4,13 +4,15 @@
 .actions {
   display: flex;
   flex-direction: column;
-  button {
+  button,
+  a {
     padding: 14px 24px;
     color: #fff;
     font-size: 18px;
     border: none;
     border-radius: 41px;
     outline: none;
+    line-height: 1.5;
     cursor: pointer;
     @include sp-small {
       font-size: 14px;
