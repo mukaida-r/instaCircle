@@ -18,15 +18,15 @@ const routes: Routes = [
         path: '',
         loadChildren: () =>
           import('./home/home.module').then((m) => m.HomeModule),
-        // canLoad: [AuthGuard],
-        // canActivate: [AuthGuard]
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard],
       },
       {
         path: 'event/:eventId',
         loadChildren: () =>
           import('./event/event.module').then((m) => m.EventModule),
-        // canLoad: [AuthGuard],
-        // canActivate: [AuthGuard]
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard],
       },
     ],
   },

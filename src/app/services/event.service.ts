@@ -4,7 +4,7 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { combineLatest, Observable } from 'rxjs';
+import { combineLatest, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import * as firebase from 'firebase';
 import { Event } from '../interfaces/event';
@@ -95,6 +95,8 @@ export class EventService {
             return combineLatest(
               joinedEvents.map((event) => this.getEvent(event.eventId))
             );
+          } else {
+            return of(null);
           }
         })
       );
