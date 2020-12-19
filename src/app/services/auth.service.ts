@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
 import { Observable, of } from 'rxjs';
+import { shareReplay, switchMap, tap } from 'rxjs/operators';
 import { User } from '../interfaces/user';
-import { shareReplay, switchMap } from 'rxjs/operators';
 import { UserService } from './user.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Route } from '@angular/compiler/src/core';
 
 @Injectable({
   providedIn: 'root',
