@@ -15,7 +15,7 @@ import { ImageService } from 'src/app/services/image.service';
 export class ImageListComponent implements OnInit {
   eventId: string;
   imageList: Image[];
-  eventUrl: string = location.href;
+  eventUrl: string = location.href.replace('event/', '');
 
   event$: Observable<Event>;
 
