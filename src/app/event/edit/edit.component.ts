@@ -5,8 +5,6 @@ import { Observable } from 'rxjs';
 import { Event } from 'src/app/interfaces/event';
 import { AuthService } from 'src/app/services/auth.service';
 import { EventService } from 'src/app/services/event.service';
-import { RouteParamsService } from 'src/app/services/route-params.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-edit',
@@ -15,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class EditComponent implements OnInit {
   readonly titleMaxLength: number = 40;
-  readonly discliptionMaxLength: number = 40;
+  readonly descliptionMaxLength: number = 40;
 
   uid: string;
   event$: Observable<Event>;
@@ -30,9 +28,9 @@ export class EditComponent implements OnInit {
       '',
       [Validators.required, Validators.maxLength(this.titleMaxLength)],
     ],
-    discliption: [
+    descliption: [
       '',
-      [Validators.required, Validators.maxLength(this.discliptionMaxLength)],
+      [Validators.required, Validators.maxLength(this.descliptionMaxLength)],
     ],
   });
 
@@ -51,7 +49,7 @@ export class EditComponent implements OnInit {
         this.oldImageUrl = event.thumbnailURL;
         this.form.patchValue({
           title: event.title || '',
-          discliption: event.discliption || '',
+          descliption: event.descliption || '',
         });
       });
     });
