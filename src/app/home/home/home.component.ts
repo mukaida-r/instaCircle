@@ -26,14 +26,14 @@ export class HomeComponent implements OnInit {
 
   myOwnedEvents$: Observable<Event[]> = this.user$.pipe(
     switchMap((user) => {
-      const id = user.uid;
+      const id = user?.uid;
       return this.eventService.getMyOwnedEvents(id);
     })
   );
 
   joinedEvents$: Observable<Event[]> = this.user$.pipe(
     switchMap((user) => {
-      const uid = user.uid;
+      const uid = user?.uid;
       return this.eventService.getJoinedEvents(uid);
     })
   );

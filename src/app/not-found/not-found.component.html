@@ -1,1 +1,21 @@
-<p>not-found works!</p>
+<div class="not-found">
+  <mat-icon class="not-found__icon">not_interested</mat-icon>
+  <h1 class="not-found__title">404 Not Found.</h1>
+  <div class="not-found__text">
+    <p>お探しのページが見つかりませんでした。</p>
+    <p>
+      <span>URLに誤りがあるか、</span
+      ><span>ページが削除された可能性があります。</span>
+    </p>
+  </div>
+  <div class="not-found__actions">
+    <ng-container *ngIf="authService.user$ | async; else default">
+      <a routerLink="/" class="not-found__link">トップページへ戻る</a>
+    </ng-container>
+    <ng-template #default>
+      <button (click)="authService.googlelogin()" class="not-found__link">
+        ログインする
+      </button>
+    </ng-template>
+  </div>
+</div>

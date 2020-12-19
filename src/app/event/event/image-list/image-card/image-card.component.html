@@ -8,7 +8,7 @@
         class="image-card__menu"
         mat-icon-button
         [matMenuTriggerFor]="menu"
-        *ngIf="user.uid == image.uid"
+        *ngIf="user?.uid == image.uid"
       >
         <mat-icon>more_vert</mat-icon>
       </button>
